@@ -1,0 +1,66 @@
+{
+  "surveyTitle": "Food Delivery App Feedback",
+  "theme": "customer experience",
+  "baseline": [
+    {
+      "sentence": "The delivery was late by 30 minutes",
+      "id": "feedback-001"
+    },
+    {
+      "sentence": "Food arrived cold and soggy",
+      "id": "feedback-002"
+    },
+    {
+      "sentence": "Driver was friendly and professional",
+      "id": "feedback-003"
+    },
+    {
+      "sentence": "App interface is confusing to navigate",
+      "id": "feedback-004"
+    },
+    {
+      "sentence": "Prices are too high compared to competitors",
+      "id": "feedback-005"
+    },
+    {
+      "sentence": "Great selection of restaurants in my area",
+      "id": "feedback-006"
+    },
+    {
+      "sentence": "Delivery was late and food was cold",
+      "id": "feedback-007"
+    },
+    {
+      "sentence": "Customer service took too long to respond",
+      "id": "feedback-008"
+    },
+    {
+      "sentence": "Love the new tracking feature",
+      "id": "feedback-009"
+    },
+    {
+      "sentence": "Too many notifications are annoying",
+      "id": "feedback-010"
+    },
+    {
+      "sentence": "Food quality is consistently good",
+      "id": "feedback-011"
+    },
+    {
+      "sentence": "Delivery fees are unreasonable",
+      "id": "feedback-012"
+    },
+    {
+      "sentence": "App crashes frequently when placing orders",
+      "id": "feedback-013"
+    },
+    {
+      "sentence": "Rewards program is worth it",
+      "id": "feedback-014"
+    },
+    {
+      "sentence": "Driver couldn't find my address",
+      "id": "feedback-015"
+    }
+  ]
+}

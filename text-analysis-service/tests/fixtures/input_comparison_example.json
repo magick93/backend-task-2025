@@ -1,0 +1,96 @@
+{
+  "surveyTitle": "Food Delivery App Feedback",
+  "theme": "customer experience",
+  "baseline": [
+    {
+      "sentence": "The delivery was late by 30 minutes",
+      "id": "feedback-001"
+    },
+    {
+      "sentence": "Food arrived cold and soggy",
+      "id": "feedback-002"
+    },
+    {
+      "sentence": "Driver was friendly and professional",
+      "id": "feedback-003"
+    },
+    {
+      "sentence": "App interface is confusing to navigate",
+      "id": "feedback-004"
+    },
+    {
+      "sentence": "Prices are too high compared to competitors",
+      "id": "feedback-005"
+    },
+    {
+      "sentence": "Great selection of restaurants in my area",
+      "id": "feedback-006"
+    },
+    {
+      "sentence": "Delivery was late and food was cold",
+      "id": "feedback-007"
+    },
+    {
+      "sentence": "Customer service took too long to respond",
+      "id": "feedback-008"
+    },
+    {
+      "sentence": "Love the new tracking feature",
+      "id": "feedback-009"
+    },
+    {
+      "sentence": "Too many notifications are annoying",
+      "id": "feedback-010"
+    }
+  ],
+  "comparison": [
+    {
+      "sentence": "Delivery is always on time now",
+      "id": "feedback-101"
+    },
+    {
+      "sentence": "Food arrives hot and fresh",
+      "id": "feedback-102"
+    },
+    {
+      "sentence": "Drivers are rude sometimes",
+      "id": "feedback-103"
+    },
+    {
+      "sentence": "App interface improved significantly",
+      "id": "feedback-104"
+    },
+    {
+      "sentence": "Prices increased again",
+      "id": "feedback-105"
+    },
+    {
+      "sentence": "Restaurant selection decreased",
+      "id": "feedback-106"
+    },
+    {
+      "sentence": "Delivery is faster than before",
+      "id": "feedback-107"
+    },
+    {
+      "sentence": "Customer service responds quickly",
+      "id": "feedback-108"
+    },
+    {
+      "sentence": "Tracking feature is buggy",
+      "id": "feedback-109"
+    },
+    {
+      "sentence": "Notifications are helpful now",
+      "id": "feedback-110"
+    },
+    {
+      "sentence": "New rating system is unfair",
+      "id": "feedback-111"
+    },
+    {
+      "sentence": "Loyalty program rewards are great",
+      "id": "feedback-112"
+    }
+  ]
+}
