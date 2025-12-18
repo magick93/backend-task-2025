@@ -57,7 +57,8 @@ class TestStandalonePipelineIntegration:
                                     'sentence_count': 2,
                                     'diversity_score': 0.1,
                                     'patterns': [],
-                                    'summary': 'Test summary'
+                                    'summary': 'Test summary',
+                                    'sentence_ids': ['id1', 'id2']
                                 }
                                 mock_summary.return_value = {
                                     'total_clusters': 1,
@@ -75,7 +76,10 @@ class TestStandalonePipelineIntegration:
                                 
                                 # Process standalone analysis
                                 result = orchestrator.process_standalone(
-                                    sentences=["sentence1", "sentence2"],
+                                    sentences=[
+                                        {"sentence": "sentence1", "id": "id1"},
+                                        {"sentence": "sentence2", "id": "id2"}
+                                    ],
                                     job_id="test-job-123"
                                 )
                                 
@@ -119,14 +123,21 @@ class TestStandalonePipelineIntegration:
                                         'sentence_count': len(sentences),
                                         'diversity_score': 0.2,
                                         'patterns': [],
-                                        'summary': f'Summary for cluster {cluster_id}'
+                                        'summary': f'Summary for cluster {cluster_id}',
+                                        'sentence_ids': [f'id{i+1}' for i in range(len(sentences))]
                                     }
                                 
                                 mock_insights.side_effect = insights_side_effect
                                 
                                 # Process
                                 result = orchestrator.process_standalone(
-                                    sentences=["s1", "s2", "s3", "s4", "s5"],
+                                    sentences=[
+                                        {"sentence": "s1", "id": "id1"},
+                                        {"sentence": "s2", "id": "id2"},
+                                        {"sentence": "s3", "id": "id3"},
+                                        {"sentence": "s4", "id": "id4"},
+                                        {"sentence": "s5", "id": "id5"}
+                                    ],
                                     job_id="test-job-456"
                                 )
                                 
@@ -171,7 +182,7 @@ class TestStandalonePipelineIntegration:
                                 mock_cluster.return_value = np.array([0])
                                 
                                 result = orchestrator.process_standalone(
-                                    sentences=["single sentence"],
+                                    sentences=[{"sentence": "single sentence", "id": "id1"}],
                                     job_id="test-job-single"
                                 )
                                 
@@ -188,7 +199,7 @@ class TestStandalonePipelineIntegration:
             # Should propagate exception
             with pytest.raises(Exception, match="Embedding failed"):
                 orchestrator.process_standalone(
-                    sentences=["test sentence"],
+                    sentences=[{"sentence": "test sentence", "id": "id1"}],
                     job_id="test-job-error"
                 )
     
@@ -228,7 +239,8 @@ class TestStandalonePipelineIntegration:
                                                             'sentence_count': 1,
                                                             'diversity_score': 0.0,
                                                             'patterns': [],
-                                                            'summary': 'Single comment'
+                                                            'summary': 'Single comment',
+                                                            'sentence_ids': ['id1']
                                                         }
                                                         mock_summary1.return_value = mock_summary2.return_value = {
                                                             'total_clusters': 1,
@@ -246,12 +258,12 @@ class TestStandalonePipelineIntegration:
                                                         
                                                         # Process with both orchestrators
                                                         result1 = orchestrator1.process_standalone(
-                                                            sentences=["test"],
+                                                            sentences=[{"sentence": "test", "id": "id1"}],
                                                             job_id="test-job-deterministic"
                                                         )
                                                         
                                                         result2 = orchestrator2.process_standalone(
-                                                            sentences=["test"],
+                                                            sentences=[{"sentence": "test", "id": "id1"}],
                                                             job_id="test-job-deterministic"
                                                         )
                                                         
@@ -272,7 +284,7 @@ class TestStandalonePipelineIntegration:
                                 
                                 # Process and get result
                                 result = orchestrator.process_standalone(
-                                    sentences=["schema test"],
+                                    sentences=[{"sentence": "schema test", "id": "id1"}],
                                     job_id="test-job-schema"
                                 )
                                 
@@ -299,7 +311,10 @@ class TestStandalonePipelineIntegration:
                             with patch.object(orchestrator.insight_generator, 'generate_overall_summary'):
                                 
                                 result = orchestrator._process_dataset(
-                                    sentences=["test1", "test2"],
+                                    sentences=[
+                                        {"sentence": "test1", "id": "id1"},
+                                        {"sentence": "test2", "id": "id2"}
+                                    ],
                                     dataset_name="test-dataset"
                                 )
                                 

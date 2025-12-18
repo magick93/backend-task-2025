@@ -1,0 +1,962 @@
+2025-12-19 08:31:20,844 | No config file found in this directory.
+2025-12-19 08:31:20,844 | OSError occurred while reading TOML file: [Errno 2] No such file or directory: '/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/samconfig.toml'
+2025-12-19 08:31:20,844 | Config file location: /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/samconfig.toml
+2025-12-19 08:31:20,844 | Config file '/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/samconfig.toml' does not exist
+2025-12-19 08:31:20,866 | OSError occurred while reading TOML file: [Errno 2] No such file or directory: '/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/samconfig.toml'
+2025-12-19 08:31:20,866 | Using config file: samconfig.toml, config environment: default
+2025-12-19 08:31:20,866 | Expand command line arguments to:
+2025-12-19 08:31:20,866 | --template_file=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/template.yaml --port=3000 --env_vars=.env --warm_containers=EAGER --host=127.0.0.1 --static_dir=public --layer_cache_basedir=/home/anton/.aws-sam/layers-pkg --container_host=localhost --container_host_interface=127.0.0.1 
+2025-12-19 08:31:20,876 | local start-api command is called
+2025-12-19 08:31:21,902 | No Parameters detected in the template
+2025-12-19 08:31:21,930 | Sam customer defined id is more priority than other IDs. Customer defined id for resource TextAnalysisFunction is TextAnalysisFunction
+2025-12-19 08:31:21,930 | There is no customer defined id or cdk path defined for resource ServerlessRestApi, so we will use the resource logical id as the resource id
+2025-12-19 08:31:21,931 | 0 stacks found in the template
+2025-12-19 08:31:21,931 | No Parameters detected in the template
+2025-12-19 08:31:21,950 | Sam customer defined id is more priority than other IDs. Customer defined id for resource TextAnalysisFunction is TextAnalysisFunction
+2025-12-19 08:31:21,951 | There is no customer defined id or cdk path defined for resource ServerlessRestApi, so we will use the resource logical id as the resource id
+2025-12-19 08:31:21,951 | 2 resources found in the stack 
+2025-12-19 08:31:21,951 | Found Serverless function with name='TextAnalysisFunction' and CodeUri='TextAnalysisFunction'
+2025-12-19 08:31:21,951 | --base-dir is not presented, adjusting uri TextAnalysisFunction relative to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/template.yaml
+2025-12-19 08:31:21,952 | watch resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/template.yaml
+2025-12-19 08:31:21,952 | Create Observer for resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/template.yaml with recursive True
+2025-12-19 08:31:21,952 | watch resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/template.yaml's parent /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build
+2025-12-19 08:31:21,952 | Create Observer for resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build with recursive False
+2025-12-19 08:31:21,953 | ContainerClientFactory.create_client() called
+2025-12-19 08:31:21,953 | Admin preference: None
+2025-12-19 08:31:21,953 | Using auto-detected client creation
+2025-12-19 08:31:21,953 | Trying Docker client creation
+2025-12-19 08:31:21,953 | Creating Docker container client from environment variable.
+2025-12-19 08:31:21,953 | Creating container client with parameters: {'version': '1.35'}
+2025-12-19 08:31:21,953 | DockerContainerClient created successfully
+2025-12-19 08:31:21,957 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:21,959 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:21,959 | Using Docker as Container Engine.
+2025-12-19 08:31:21,959 | Set global container socket path: container_socket_path=
+2025-12-19 08:31:21,960 | Initializing the lambda functions containers.
+2025-12-19 08:31:21,960 | Async execution started
+2025-12-19 08:31:21,960 | Invoking function functools.partial(<function InvokeContext._initialize_all_functions_containers.<locals>.initialize_function_container at 0x759284267f60>, Function(function_id='TextAnalysisFunction', name='TextAnalysisFunction', functionname='TextAnalysisFunction', runtime='python3.13', memory=1024, timeout=30, handler='app.lambda_handler', imageuri=None, packagetype='Zip', imageconfig=None, codeuri='/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction', environment={'Variables': {'LOG_LEVEL': 'INFO'}}, rolearn=None, layers=[], events={'ApiEvent': {'Type': 'Api', 'Properties': {'Path': '/analyze', 'Method': 'POST', 'RestApiId': 'ServerlessRestApi'}}}, metadata={'SamResourceId': 'TextAnalysisFunction'}, inlinecode=None, codesign_config_arn=None, architectures=['x86_64'], function_url_config=None, function_build_info=<FunctionBuildInfo.BuildableZip: ('BuildableZip', 'Regular ZIP function which can be build with SAM CLI')>, stack_path='', runtime_management_config=None, logging_config={'LogFormat': 'JSON'}, tenancy_config=None, durable_config=None, capacity_provider_config=None, publish_to_latest_published=None))
+2025-12-19 08:31:21,960 | Waiting for async results
+2025-12-19 08:31:21,961 | ContainerClientFactory.create_client() called
+2025-12-19 08:31:21,961 | Admin preference: None
+2025-12-19 08:31:21,961 | Using auto-detected client creation
+2025-12-19 08:31:21,961 | Trying Docker client creation
+2025-12-19 08:31:21,961 | Creating Docker container client from environment variable.
+2025-12-19 08:31:21,962 | Creating container client with parameters: {'version': '1.35'}
+2025-12-19 08:31:21,962 | DockerContainerClient created successfully
+2025-12-19 08:31:21,965 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:21,967 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:21,967 | Using Docker as Container Engine.
+2025-12-19 08:31:21,967 | Set global container socket path: container_socket_path=
+2025-12-19 08:31:21,970 | Environment variables data found for specific function in standard format
+2025-12-19 08:31:21,970 | Loading AWS credentials from session with profile 'None'
+2025-12-19 08:31:21,984 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:21,984 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:21,984 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:21,984 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:22,538 | watch resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:22,538 | Create Observer for resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction with recursive True
+2025-12-19 08:31:22,558 | watch resource /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction's parent /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build
+2025-12-19 08:31:22,565 | Code /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction is not a zip/jar file
+2025-12-19 08:31:22,565 | ContainerClientFactory.create_client() called
+2025-12-19 08:31:22,565 | Admin preference: None
+2025-12-19 08:31:22,565 | Using auto-detected client creation
+2025-12-19 08:31:22,565 | Trying Docker client creation
+2025-12-19 08:31:22,565 | Creating Docker container client from environment variable.
+2025-12-19 08:31:22,566 | Creating container client with parameters: {'version': '1.35'}
+2025-12-19 08:31:22,566 | DockerContainerClient created successfully
+2025-12-19 08:31:22,568 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:22,570 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:22,570 | Using Docker as Container Engine.
+2025-12-19 08:31:22,570 | Set global container socket path: container_socket_path=
+2025-12-19 08:31:28,162 | Local image is out of date and will be updated to the latest runtime. To skip this, pass in the parameter --skip-pull-image
+Building image....2025-12-19 08:31:28,464 | Build stream: Step 1/3 : FROM public.ecr.aws/lambda/python:3.13-x86_64
+..2025-12-19 08:31:32,308 | Build status: Pulling from lambda/python
+.2025-12-19 08:31:32,308 | Build status: Already exists
+.2025-12-19 08:31:32,318 | Build status: Pulling fs layer
+.2025-12-19 08:31:32,318 | Build status: Pulling fs layer
+.2025-12-19 08:31:32,318 | Build status: Pulling fs layer
+.2025-12-19 08:31:32,318 | Build status: Pulling fs layer
+.2025-12-19 08:31:32,318 | Build status: Pulling fs layer
+.2025-12-19 08:31:32,318 | Build status: Waiting
+.2025-12-19 08:31:32,319 | Build status: Waiting
+.2025-12-19 08:31:33,695 | Build status: Downloading
+.2025-12-19 08:31:33,695 | Build status: Verifying Checksum
+.2025-12-19 08:31:33,695 | Build status: Download complete
+.2025-12-19 08:31:33,703 | Build status: Downloading
+.2025-12-19 08:31:33,754 | Build status: Downloading
+.2025-12-19 08:31:33,806 | Build status: Download complete
+.2025-12-19 08:31:33,807 | Build status: Extracting
+.2025-12-19 08:31:33,807 | Build status: Extracting
+.2025-12-19 08:31:33,807 | Build status: Extracting
+.2025-12-19 08:31:33,870 | Build status: Downloading
+.2025-12-19 08:31:33,882 | Build status: Pull complete
+.2025-12-19 08:31:33,891 | Build status: Extracting
+.2025-12-19 08:31:33,892 | Build status: Extracting
+.2025-12-19 08:31:33,934 | Build status: Pull complete
+.2025-12-19 08:31:33,971 | Build status: Downloading
+.2025-12-19 08:31:34,075 | Build status: Downloading
+.2025-12-19 08:31:34,177 | Build status: Downloading
+.2025-12-19 08:31:34,282 | Build status: Downloading
+.2025-12-19 08:31:34,361 | Build status: Verifying Checksum
+.2025-12-19 08:31:34,361 | Build status: Download complete
+.2025-12-19 08:31:34,361 | Build status: Extracting
+.2025-12-19 08:31:34,415 | Build status: Extracting
+.2025-12-19 08:31:34,441 | Build status: Pull complete
+.2025-12-19 08:31:34,892 | Build status: Downloading
+.2025-12-19 08:31:34,892 | Build status: Downloading
+.2025-12-19 08:31:34,893 | Build status: Verifying Checksum
+.2025-12-19 08:31:34,893 | Build status: Download complete
+.2025-12-19 08:31:34,998 | Build status: Downloading
+.2025-12-19 08:31:35,149 | Build status: Downloading
+.2025-12-19 08:31:35,292 | Build status: Downloading
+.2025-12-19 08:31:35,442 | Build status: Downloading
+.2025-12-19 08:31:35,576 | Build status: Downloading
+.2025-12-19 08:31:35,683 | Build status: Downloading
+.2025-12-19 08:31:35,825 | Build status: Downloading
+.2025-12-19 08:31:35,967 | Build status: Downloading
+.2025-12-19 08:31:36,108 | Build status: Downloading
+.2025-12-19 08:31:36,249 | Build status: Downloading
+.2025-12-19 08:31:36,393 | Build status: Downloading
+.2025-12-19 08:31:36,534 | Build status: Downloading
+.2025-12-19 08:31:36,733 | Build status: Downloading
+.2025-12-19 08:31:36,864 | Build status: Downloading
+.2025-12-19 08:31:37,006 | Build status: Downloading
+.2025-12-19 08:31:37,148 | Build status: Downloading
+.2025-12-19 08:31:37,379 | Build status: Downloading
+.2025-12-19 08:31:37,524 | Build status: Downloading
+.2025-12-19 08:31:37,666 | Build status: Downloading
+.2025-12-19 08:31:37,805 | Build status: Downloading
+.2025-12-19 08:31:37,948 | Build status: Downloading
+.2025-12-19 08:31:38,169 | Build status: Downloading
+.2025-12-19 08:31:38,279 | Build status: Downloading
+.2025-12-19 08:31:38,421 | Build status: Downloading
+.2025-12-19 08:31:38,527 | Build status: Downloading
+.2025-12-19 08:31:38,658 | Build status: Downloading
+.2025-12-19 08:31:38,877 | Build status: Downloading
+.2025-12-19 08:31:38,990 | Build status: Downloading
+.2025-12-19 08:31:39,132 | Build status: Downloading
+.2025-12-19 08:31:39,273 | Build status: Downloading
+.2025-12-19 08:31:39,415 | Build status: Downloading
+.2025-12-19 08:31:39,585 | Build status: Downloading
+.2025-12-19 08:31:39,697 | Build status: Downloading
+.2025-12-19 08:31:39,853 | Build status: Downloading
+.2025-12-19 08:31:39,980 | Build status: Downloading
+.2025-12-19 08:31:40,120 | Build status: Downloading
+.2025-12-19 08:31:40,307 | Build status: Downloading
+.2025-12-19 08:31:40,448 | Build status: Downloading
+.2025-12-19 08:31:40,685 | Build status: Downloading
+.2025-12-19 08:31:40,825 | Build status: Downloading
+.2025-12-19 08:31:41,008 | Build status: Downloading
+.2025-12-19 08:31:41,110 | Build status: Downloading
+.2025-12-19 08:31:41,252 | Build status: Downloading
+.2025-12-19 08:31:41,394 | Build status: Downloading
+.2025-12-19 08:31:41,535 | Build status: Downloading
+.2025-12-19 08:31:41,676 | Build status: Downloading
+.2025-12-19 08:31:41,817 | Build status: Downloading
+.2025-12-19 08:31:41,950 | Build status: Downloading
+.2025-12-19 08:31:42,053 | Build status: Downloading
+.2025-12-19 08:31:42,194 | Build status: Downloading
+.2025-12-19 08:31:42,335 | Build status: Downloading
+.2025-12-19 08:31:42,475 | Build status: Downloading
+.2025-12-19 08:31:42,620 | Build status: Downloading
+.2025-12-19 08:31:42,758 | Build status: Downloading
+.2025-12-19 08:31:42,900 | Build status: Downloading
+.2025-12-19 08:31:43,039 | Build status: Downloading
+.2025-12-19 08:31:43,185 | Build status: Downloading
+.2025-12-19 08:31:43,323 | Build status: Downloading
+.2025-12-19 08:31:43,512 | Build status: Downloading
+.2025-12-19 08:31:43,653 | Build status: Downloading
+.2025-12-19 08:31:43,887 | Build status: Downloading
+.2025-12-19 08:31:44,030 | Build status: Downloading
+.2025-12-19 08:31:44,262 | Build status: Downloading
+.2025-12-19 08:31:44,407 | Build status: Downloading
+.2025-12-19 08:31:44,643 | Build status: Downloading
+.2025-12-19 08:31:44,784 | Build status: Downloading
+.2025-12-19 08:31:45,247 | Build status: Downloading
+.2025-12-19 08:31:45,366 | Build status: Downloading
+.2025-12-19 08:31:45,509 | Build status: Downloading
+.2025-12-19 08:31:45,651 | Build status: Downloading
+.2025-12-19 08:31:45,794 | Build status: Downloading
+.2025-12-19 08:31:45,938 | Build status: Downloading
+.2025-12-19 08:31:46,079 | Build status: Downloading
+.2025-12-19 08:31:46,222 | Build status: Downloading
+.2025-12-19 08:31:46,379 | Build status: Downloading
+.2025-12-19 08:31:46,505 | Build status: Downloading
+.2025-12-19 08:31:46,647 | Build status: Downloading
+.2025-12-19 08:31:46,820 | Build status: Downloading
+.2025-12-19 08:31:46,931 | Build status: Downloading
+.2025-12-19 08:31:47,169 | Build status: Downloading
+.2025-12-19 08:31:47,312 | Build status: Downloading
+.2025-12-19 08:31:47,547 | Build status: Downloading
+.2025-12-19 08:31:47,688 | Build status: Downloading
+.2025-12-19 08:31:47,830 | Build status: Downloading
+.2025-12-19 08:31:47,939 | Build status: Downloading
+.2025-12-19 08:31:48,066 | Build status: Downloading
+.2025-12-19 08:31:48,207 | Build status: Downloading
+.2025-12-19 08:31:48,348 | Build status: Downloading
+.2025-12-19 08:31:48,489 | Build status: Downloading
+.2025-12-19 08:31:48,715 | Build status: Downloading
+.2025-12-19 08:31:48,819 | Build status: Downloading
+.2025-12-19 08:31:48,961 | Build status: Downloading
+.2025-12-19 08:31:48,980 | Build status: Verifying Checksum
+.2025-12-19 08:31:48,980 | Build status: Download complete
+.2025-12-19 08:31:49,074 | Build status: Extracting
+.2025-12-19 08:31:49,177 | Build status: Extracting
+.2025-12-19 08:31:49,278 | Build status: Extracting
+.2025-12-19 08:31:49,390 | Build status: Extracting
+.2025-12-19 08:31:49,503 | Build status: Extracting
+.2025-12-19 08:31:49,605 | Build status: Extracting
+.2025-12-19 08:31:49,706 | Build status: Extracting
+.2025-12-19 08:31:49,811 | Build status: Extracting
+.2025-12-19 08:31:49,915 | Build status: Extracting
+.2025-12-19 08:31:50,018 | Build status: Extracting
+.2025-12-19 08:31:50,202 | Build status: Extracting
+.2025-12-19 08:31:50,324 | Build status: Extracting
+.2025-12-19 08:31:50,430 | Build status: Extracting
+.2025-12-19 08:31:50,540 | Build status: Extracting
+.2025-12-19 08:31:50,650 | Build status: Extracting
+.2025-12-19 08:31:50,765 | Build status: Extracting
+.2025-12-19 08:31:50,885 | Build status: Extracting
+.2025-12-19 08:31:50,987 | Build status: Extracting
+.2025-12-19 08:31:51,099 | Build status: Extracting
+.2025-12-19 08:31:51,206 | Build status: Extracting
+.2025-12-19 08:31:51,307 | Build status: Extracting
+.2025-12-19 08:31:51,416 | Build status: Extracting
+.2025-12-19 08:31:51,521 | Build status: Extracting
+.2025-12-19 08:31:51,627 | Build status: Extracting
+.2025-12-19 08:31:51,735 | Build status: Extracting
+.2025-12-19 08:31:51,852 | Build status: Extracting
+.2025-12-19 08:31:51,959 | Build status: Extracting
+.2025-12-19 08:31:52,068 | Build status: Extracting
+.2025-12-19 08:31:52,208 | Build status: Extracting
+.2025-12-19 08:31:52,328 | Build status: Extracting
+.2025-12-19 08:31:52,438 | Build status: Extracting
+.2025-12-19 08:31:52,556 | Build status: Extracting
+.2025-12-19 08:31:52,591 | Build status: Extracting
+.2025-12-19 08:31:52,732 | Build status: Pull complete
+.2025-12-19 08:31:52,742 | Build status: Extracting
+.2025-12-19 08:31:52,742 | Build status: Extracting
+.2025-12-19 08:31:52,785 | Build status: Pull complete
+.2025-12-19 08:31:52,810 | Build status: Digest: sha256:0d8224350be241d5957e11091a8faf38a2284da337f015df473a816491307bbd
+.2025-12-19 08:31:52,820 | Build status: Status: Downloaded newer image for public.ecr.aws/lambda/python:3.13-x86_64
+.2025-12-19 08:31:52,826 | Build stream: ---> 4b39b7bac5f0
+.2025-12-19 08:31:52,826 | Build stream: Step 2/3 : ADD aws-lambda-rie-x86_64 /var/rapid/
+..2025-12-19 08:31:56,256 | Build stream: ---> c8948ca85cfb
+.2025-12-19 08:31:56,256 | Build stream: Step 3/3 : RUN mv /var/rapid/aws-lambda-rie-x86_64 /var/rapid/aws-lambda-rie && chmod +x /var/rapid/aws-lambda-rie
+..2025-12-19 08:31:56,345 | Build stream: ---> Running in 0302296836dc
+.2025-12-19 08:31:56,853 | Build stream: ---> Removed intermediate container 0302296836dc
+.2025-12-19 08:31:56,854 | Build stream: ---> 87b6de138d92
+..2025-12-19 08:31:56,862 | Build stream: Successfully built 87b6de138d92
+.2025-12-19 08:31:56,873 | Build stream: Successfully tagged public.ecr.aws/lambda/python:3.13-rapid-x86_64
+
+2025-12-19 08:31:56,890 | Checking free port on 127.0.0.1:6962
+2025-12-19 08:31:56,894 | Using local image: public.ecr.aws/lambda/python:3.13-rapid-x86_64.
+
+2025-12-19 08:31:56,894 | Mounting /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction as /var/task:ro,delegated, inside runtime container
+2025-12-19 08:31:56,894 | ContainerClientFactory.create_client() called
+2025-12-19 08:31:56,895 | Admin preference: None
+2025-12-19 08:31:56,895 | Using auto-detected client creation
+2025-12-19 08:31:56,895 | Trying Docker client creation
+2025-12-19 08:31:56,895 | Creating Docker container client from environment variable.
+2025-12-19 08:31:56,895 | Creating container client with parameters: {'version': '1.35'}
+2025-12-19 08:31:56,895 | DockerContainerClient created successfully
+2025-12-19 08:31:56,899 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:56,902 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:56,902 | Using Docker as Container Engine.
+2025-12-19 08:31:56,902 | Set global container socket path: container_socket_path=
+2025-12-19 08:31:56,980 | SAM_CONTAINER_ID: c6673681801910f46c41344728a4bc9cb4884999b58cafe0392faf2592dc0fcb
+2025-12-19 08:31:56,980 | Initialized container c6673681801910f46c41344728a4bc9cb4884999b58cafe0392faf2592dc0fcb with max_concurrency=1
+2025-12-19 08:31:57,168 | Async execution completed
+2025-12-19 08:31:57,168 | Containers created. Waiting for readiness...
+2025-12-19 08:31:57,168 | Initialized container IDs: ['c6673681801910f46c41344728a4bc9cb4884999b58cafe0392faf2592dc0fcb']
+2025-12-19 08:31:57,168 | Waiting for 1 containers to be running...
+2025-12-19 08:31:57,168 | ContainerClientFactory.create_client() called
+2025-12-19 08:31:57,168 | Admin preference: None
+2025-12-19 08:31:57,168 | Using auto-detected client creation
+2025-12-19 08:31:57,168 | Trying Docker client creation
+2025-12-19 08:31:57,168 | Creating Docker container client from environment variable.
+2025-12-19 08:31:57,169 | Creating container client with parameters: {'version': '1.35'}
+2025-12-19 08:31:57,169 | DockerContainerClient created successfully
+2025-12-19 08:31:57,171 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:57,173 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localhost/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version")
+2025-12-19 08:31:57,174 | Using Docker as Container Engine.
+2025-12-19 08:31:57,174 | Set global container socket path: container_socket_path=
+2025-12-19 08:31:57,176 | All 1 containers running after 0.0 seconds
+2025-12-19 08:31:57,176 | All containers are ready.
+2025-12-19 08:31:57,176 | Found '1' API Events in Serverless function with name 'TextAnalysisFunction'
+2025-12-19 08:31:57,176 | Detected Inline Swagger definition
+2025-12-19 08:31:57,176 | Parsing Swagger document using 2.0 specification
+2025-12-19 08:31:57,176 | Found '0' authorizers in resource 'ServerlessRestApi'
+2025-12-19 08:31:57,176 | Lambda function integration not found in Swagger document at path='/analyze' method='post'
+2025-12-19 08:31:57,176 | Found '0' APIs in resource 'ServerlessRestApi'
+2025-12-19 08:31:57,177 | Authorizer not found or disabled, returning early
+2025-12-19 08:31:57,177 | Removed duplicates from '0' Explicit APIs and '1' Implicit APIs to produce '1' APIs
+2025-12-19 08:31:57,177 | 1 APIs found in the template
+2025-12-19 08:31:57,178 | Mounting TextAnalysisFunction at http://127.0.0.1:3000/analyze [POST]
+2025-12-19 08:31:57,178 | You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. If you used sam build before running local commands, you will need to re-run sam build for the changes to be picked up. You only need to restart SAM CLI if you update your AWS SAM template
+2025-12-19 08:31:57,178 | Localhost server is starting up. Multi-threading = True
+2025-12-19 08:31:57,178 | Setting SIGTERM interrupt handler
+ * Tip: There are .env files present. Install python-dotenv to use them.
+2025-12-19 08:31:57 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+2025-12-19 08:31:57 [33mPress CTRL+C to quit[0m
+2025-12-19 08:31:58 127.0.0.1 - - [19/Dec/2025 08:31:58] "[31m[1mGET / HTTP/1.1[0m" 403 -
+2025-12-19 08:31:58 127.0.0.1 - - [19/Dec/2025 08:31:58] "[31m[1mOPTIONS /analyze HTTP/1.1[0m" 403 -
+2025-12-19 08:31:58,336 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Food Delivery App Feedback", "theme": "customer experience", "baseline": [{"sentence": "The delivery was late by 30 minutes", "id": "feedback-001"}, {"sentence": "Food arrived cold and soggy", "id": "feedback-002"}, {"sentence": "Driver was friendly and professional", "id": "feedback-003"}, {"sentence": "App interface is confusing to navigate", "id": "feedback-004"}, {"sentence": "Prices are too high compared to competitors", "id": "feedback-005"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '470', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['470'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:31:58,337 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:31:58,337 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:31:58,337 | Environment variables data found for specific function in standard format
+2025-12-19 08:31:58,337 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:58,337 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:58,337 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:58,337 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:31:58,342 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:31:58,345 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:31:58,345 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Food Delivery App Feedback\", \"theme\": \"customer experience\", \"baseline\": [{\"sentence\": \"The delivery was late by 30 minutes\", \"id\": \"feedback-001\"}, {\"sentence\": \"Food arrived cold and soggy\", \"id\": \"feedback-002\"}, {\"sentence\": \"Driver was friendly and professional\", \"id\": \"feedback-003\"}, {\"sentence\": \"App interface is confusing to navigate\", \"id\": \"feedback-004\"}, {\"sentence\": \"Prices are too high compared to competitors\", \"id\": \"feedback-005\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "470", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["470"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: 93dc3113-9190-4d0e-8654-f9e0c689e869 Version: $LATEST
+2025-12-18 19:32:01 - src.app.utils.timing - DEBUG - Timing utilities initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Timing utilities initialized", "logger": "src.app.utils.timing", "requestId": "", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_9187
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_9187", "logger": "app", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'standalone', 'surveyTitle': 'Food Delivery App Feedback', 'theme': 'customer experience', 'baseline': [{'sentence': 'The delivery was late by 30 minutes', 'id': 'feedback-001'}, {'sentence': 'Food arrived cold and soggy', 'id': 'feedback-002'}, {'sentence': 'Driver was friendly and professional', 'id': 'feedback-003'}, {'sentence': 'App interface is confusing to navigate', 'id': 'feedback-004'}, {'sentence': 'Prices are too high compared to competitors', 'id': 'feedback-005'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'standalone', 'surveyTitle': 'Food Delivery App Feedback', 'theme': 'customer experience', 'baseline': [{'sentence': 'The delivery was late by 30 minutes', 'id': 'feedback-001'}, {'sentence': 'Food arrived cold and soggy', 'id': 'feedback-002'}, {'sentence': 'Driver was friendly and professional', 'id': 'feedback-003'}, {'sentence': 'App interface is confusing to navigate', 'id': 'feedback-004'}, {'sentence': 'Prices are too high compared to competitors', 'id': 'feedback-005'}]}", "logger": "app", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing standalone analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing standalone analysis request", "logger": "app", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting standalone analysis for job job_20251218193201_9187
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting standalone analysis for job job_20251218193201_9187", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Preprocessing 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 5 sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 5 -> 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 5 -> 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating sentence embeddings
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating sentence embeddings", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Clustering sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 5 sentences", "logger": "src.app.pipeline.clustering", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - INFO - Clustering complete: 0 clusters, 5 noise points
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Clustering complete: 0 clusters, 5 noise points", "logger": "src.app.pipeline.clustering", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Analyzing sentiment
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Analyzing sentiment", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating cluster insights
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating cluster insights", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed standalone analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed standalone analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_9187 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_9187 in 0.0ms", "logger": "app", "requestId": "80c22de0-0b9e-44d1-8cd3-e9e957a445ae", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 80c22de0-0b9e-44d1-8cd3-e9e957a445ae
+REPORT RequestId: 80c22de0-0b9e-44d1-8cd3-e9e957a445ae	Init Duration: 0.02 ms	Duration: 3072.10 ms	Billed Duration: 3073 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01,423 | Unable to find Click Context for getting session_id.
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -
+2025-12-19 08:32:01,427 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Food Delivery App Feedback", "theme": "customer experience", "baseline": [{"sentence": "The delivery was late by 30 minutes", "id": "feedback-001"}, {"sentence": "Food arrived cold and soggy", "id": "feedback-002"}, {"sentence": "Driver was friendly and professional", "id": "feedback-003"}, {"sentence": "App interface is confusing to navigate", "id": "feedback-004"}, {"sentence": "Prices are too high compared to competitors", "id": "feedback-005"}], "comparison": [{"sentence": "Delivery is always on time now", "id": "feedback-101"}, {"sentence": "Food arrives hot and fresh", "id": "feedback-102"}, {"sentence": "Drivers are rude sometimes", "id": "feedback-103"}, {"sentence": "App interface improved significantly", "id": "feedback-104"}, {"sentence": "Prices increased again", "id": "feedback-105"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '826', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['826'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,427 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,427 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,427 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,427 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,427 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,427 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,427 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,432 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,432 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,432 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Food Delivery App Feedback\", \"theme\": \"customer experience\", \"baseline\": [{\"sentence\": \"The delivery was late by 30 minutes\", \"id\": \"feedback-001\"}, {\"sentence\": \"Food arrived cold and soggy\", \"id\": \"feedback-002\"}, {\"sentence\": \"Driver was friendly and professional\", \"id\": \"feedback-003\"}, {\"sentence\": \"App interface is confusing to navigate\", \"id\": \"feedback-004\"}, {\"sentence\": \"Prices are too high compared to competitors\", \"id\": \"feedback-005\"}], \"comparison\": [{\"sentence\": \"Delivery is always on time now\", \"id\": \"feedback-101\"}, {\"sentence\": \"Food arrives hot and fresh\", \"id\": \"feedback-102\"}, {\"sentence\": \"Drivers are rude sometimes\", \"id\": \"feedback-103\"}, {\"sentence\": \"App interface improved significantly\", \"id\": \"feedback-104\"}, {\"sentence\": \"Prices increased again\", \"id\": \"feedback-105\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "826", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["826"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: d5a1afd0-ac52-4dc0-9748-88cab5693a6c Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_8515
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_8515", "logger": "app", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'comparison', 'surveyTitle': 'Food Delivery App Feedback', 'theme': 'customer experience', 'baseline': [{'sentence': 'The delivery was late by 30 minutes', 'id': 'feedback-001'}, {'sentence': 'Food arrived cold and soggy', 'id': 'feedback-002'}, {'sentence': 'Driver was friendly and professional', 'id': 'feedback-003'}, {'sentence': 'App interface is confusing to navigate', 'id': 'feedback-004'}, {'sentence': 'Prices are too high compared to competitors', 'id': 'feedback-005'}], 'comparison': [{'sentence': 'Delivery is always on time now', 'id': 'feedback-101'}, {'sentence': 'Food arrives hot and fresh', 'id': 'feedback-102'}, {'sentence': 'Drivers are rude sometimes', 'id': 'feedback-103'}, {'sentence': 'App interface improved significantly', 'id': 'feedback-104'}, {'sentence': 'Prices increased again', 'id': 'feedback-105'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'comparison', 'surveyTitle': 'Food Delivery App Feedback', 'theme': 'customer experience', 'baseline': [{'sentence': 'The delivery was late by 30 minutes', 'id': 'feedback-001'}, {'sentence': 'Food arrived cold and soggy', 'id': 'feedback-002'}, {'sentence': 'Driver was friendly and professional', 'id': 'feedback-003'}, {'sentence': 'App interface is confusing to navigate', 'id': 'feedback-004'}, {'sentence': 'Prices are too high compared to competitors', 'id': 'feedback-005'}], 'comparison': [{'sentence': 'Delivery is always on time now', 'id': 'feedback-101'}, {'sentence': 'Food arrives hot and fresh', 'id': 'feedback-102'}, {'sentence': 'Drivers are rude sometimes', 'id': 'feedback-103'}, {'sentence': 'App interface improved significantly', 'id': 'feedback-104'}, {'sentence': 'Prices increased again', 'id': 'feedback-105'}]}", "logger": "app", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing comparative analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing comparative analysis request", "logger": "app", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting comparative analysis for job job_20251218193201_8515
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting comparative analysis for job job_20251218193201_8515", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Processing baseline dataset (5 sentences)
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Processing baseline dataset (5 sentences)", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Processing baseline dataset
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Processing baseline dataset", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 5 -> 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 5 -> 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 5 sentences", "logger": "src.app.pipeline.clustering", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - INFO - Clustering complete: 0 clusters, 5 noise points
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Clustering complete: 0 clusters, 5 noise points", "logger": "src.app.pipeline.clustering", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Processing comparison dataset (5 sentences)
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Processing comparison dataset (5 sentences)", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Processing comparison dataset
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Processing comparison dataset", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 5 -> 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 5 -> 5 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 5 sentences", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 5 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 5 sentences", "logger": "src.app.pipeline.clustering", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - INFO - Clustering complete: 0 clusters, 5 noise points
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Clustering complete: 0 clusters, 5 noise points", "logger": "src.app.pipeline.clustering", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Performing comparative analysis
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Performing comparative analysis", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - INFO - Comparing 0 baseline clusters with 0 comparison clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Comparing 0 baseline clusters with 0 comparison clusters", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - Filtered clusters: 0 -> 0
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Filtered clusters: 0 -> 0", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - Filtered clusters: 0 -> 0
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Filtered clusters: 0 -> 0", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - Found 0 similar cluster pairs
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Found 0 similar cluster pairs", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - Found 0 unique baseline clusters, 0 unique comparison clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Found 0 unique baseline clusters, 0 unique comparison clusters", "logger": "src.app.pipeline.comparison", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed comparative analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed comparative analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_8515 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_8515 in 0.0ms", "logger": "app", "requestId": "1a481c38-3e26-4d28-bf76-7f724beb255e", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 1a481c38-3e26-4d28-bf76-7f724beb255e
+REPORT RequestId: 1a481c38-3e26-4d28-bf76-7f724beb255e	Duration: 9.41 ms	Billed Duration: 10 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -
+2025-12-19 08:32:01,449 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{invalid json', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '13', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['13'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,449 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,449 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,450 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,450 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,450 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,450 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,450 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,455 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,455 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,456 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{invalid json", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "13", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["13"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: 47793bf0-88df-4f9c-98f4-700d66804a48 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_8222
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_8222", "logger": "app", "requestId": "5f0f2f49-dd25-49bc-a18f-ab0259f32ed1", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - ERROR - Job job_20251218193201_8222 failed: Invalid JSON in request: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+Traceback (most recent call last):
+  File "/var/task/app.py", line 103, in _parse_request
+    body = json.loads(event["body"])
+  File "/var/lang/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/var/lang/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.13/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/app.py", line 44, in lambda_handler
+    request_data = _parse_request(event)
+  File "/var/task/app.py", line 129, in _parse_request
+    raise ValueError(f"Invalid JSON in request: {str(e)}")
+ValueError: Invalid JSON in request: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+{"timestamp": "2025-12-18T19:32:01Z", "level": "ERROR", "message": "Job job_20251218193201_8222 failed: Invalid JSON in request: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)", "logger": "app", "stackTrace": ["  File \"/var/task/app.py\", line 44, in lambda_handler\n    request_data = _parse_request(event)\n", "  File \"/var/task/app.py\", line 129, in _parse_request\n    raise ValueError(f\"Invalid JSON in request: {str(e)}\")\n"], "errorType": "ValueError", "errorMessage": "Invalid JSON in request: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)", "requestId": "5f0f2f49-dd25-49bc-a18f-ab0259f32ed1", "location": "/var/task/app.py:lambda_handler:78", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 5f0f2f49-dd25-49bc-a18f-ab0259f32ed1
+REPORT RequestId: 5f0f2f49-dd25-49bc-a18f-ab0259f32ed1	Duration: 3.86 ms	Billed Duration: 4 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-12-19 08:32:01,467 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test Survey", "theme": "test theme"}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '53', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['53'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,467 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,467 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,467 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,467 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,468 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,468 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,468 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,473 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,473 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,474 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test Survey\", \"theme\": \"test theme\"}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "53", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["53"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: f784acd4-16b0-458b-b531-48318e85a6dc Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_4848
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_4848", "logger": "app", "requestId": "79df7a76-1bcd-44ff-8e77-0402173c5592", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - ERROR - Job job_20251218193201_4848 failed: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  Field required [type=missing, input_value={'surveyTitle': 'Test Sur..., 'theme': 'test theme'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "/var/task/app.py", line 120, in _parse_request
+    input_model = StandaloneInput(**body)
+  File "/var/task/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for StandaloneInput
+baseline
+  Field required [type=missing, input_value={'surveyTitle': 'Test Sur..., 'theme': 'test theme'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/app.py", line 44, in lambda_handler
+    request_data = _parse_request(event)
+  File "/var/task/app.py", line 132, in _parse_request
+    raise ValueError(f"Invalid request data: {str(e)}")
+ValueError: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  Field required [type=missing, input_value={'surveyTitle': 'Test Sur..., 'theme': 'test theme'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+{"timestamp": "2025-12-18T19:32:01Z", "level": "ERROR", "message": "Job job_20251218193201_4848 failed: Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  Field required [type=missing, input_value={'surveyTitle': 'Test Sur..., 'theme': 'test theme'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing", "logger": "app", "stackTrace": ["  File \"/var/task/app.py\", line 44, in lambda_handler\n    request_data = _parse_request(event)\n", "  File \"/var/task/app.py\", line 132, in _parse_request\n    raise ValueError(f\"Invalid request data: {str(e)}\")\n"], "errorType": "ValueError", "errorMessage": "Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  Field required [type=missing, input_value={'surveyTitle': 'Test Sur..., 'theme': 'test theme'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing", "requestId": "79df7a76-1bcd-44ff-8e77-0402173c5592", "location": "/var/task/app.py:lambda_handler:78", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 79df7a76-1bcd-44ff-8e77-0402173c5592
+REPORT RequestId: 79df7a76-1bcd-44ff-8e77-0402173c5592	Duration: 4.51 ms	Billed Duration: 5 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-12-19 08:32:01,485 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test Survey", "theme": "test theme", "baseline": []}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '69', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['69'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,485 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,485 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,485 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,486 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,486 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,486 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,486 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,490 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,490 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,490 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test Survey\", \"theme\": \"test theme\", \"baseline\": []}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "69", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["69"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: b21aeb67-7b53-4bfa-8a2c-62590e47eae8 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_8260
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_8260", "logger": "app", "requestId": "3e0938c3-e1d6-47a0-8cf9-4d7e90439f10", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - ERROR - Job job_20251218193201_8260 failed: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  List should have at least 1 item after validation, not 0 [type=too_short, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/too_short
+Traceback (most recent call last):
+  File "/var/task/app.py", line 120, in _parse_request
+    input_model = StandaloneInput(**body)
+  File "/var/task/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for StandaloneInput
+baseline
+  List should have at least 1 item after validation, not 0 [type=too_short, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/too_short
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/app.py", line 44, in lambda_handler
+    request_data = _parse_request(event)
+  File "/var/task/app.py", line 132, in _parse_request
+    raise ValueError(f"Invalid request data: {str(e)}")
+ValueError: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  List should have at least 1 item after validation, not 0 [type=too_short, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/too_short
+{"timestamp": "2025-12-18T19:32:01Z", "level": "ERROR", "message": "Job job_20251218193201_8260 failed: Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  List should have at least 1 item after validation, not 0 [type=too_short, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_short", "logger": "app", "stackTrace": ["  File \"/var/task/app.py\", line 44, in lambda_handler\n    request_data = _parse_request(event)\n", "  File \"/var/task/app.py\", line 132, in _parse_request\n    raise ValueError(f\"Invalid request data: {str(e)}\")\n"], "errorType": "ValueError", "errorMessage": "Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  List should have at least 1 item after validation, not 0 [type=too_short, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_short", "requestId": "3e0938c3-e1d6-47a0-8cf9-4d7e90439f10", "location": "/var/task/app.py:lambda_handler:78", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 3e0938c3-e1d6-47a0-8cf9-4d7e90439f10
+REPORT RequestId: 3e0938c3-e1d6-47a0-8cf9-4d7e90439f10	Duration: 2.60 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-12-19 08:32:01,501 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test Survey", "theme": "test theme", "baseline": [{"sentence": "This is a test sentence"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '108', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['108'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,501 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,501 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,501 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,501 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,501 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,501 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,501 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,507 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,507 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,507 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test Survey\", \"theme\": \"test theme\", \"baseline\": [{\"sentence\": \"This is a test sentence\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "108", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["108"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: e3b0515f-6295-4440-b2c1-5b9a4e29dd05 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_2627
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_2627", "logger": "app", "requestId": "130ed4f5-8221-4771-9f0e-45c68f682bc8", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - ERROR - Job job_20251218193201_2627 failed: Invalid request data: 1 validation error for StandaloneInput
+baseline.0.id
+  Field required [type=missing, input_value={'sentence': 'This is a test sentence'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "/var/task/app.py", line 120, in _parse_request
+    input_model = StandaloneInput(**body)
+  File "/var/task/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for StandaloneInput
+baseline.0.id
+  Field required [type=missing, input_value={'sentence': 'This is a test sentence'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/app.py", line 44, in lambda_handler
+    request_data = _parse_request(event)
+  File "/var/task/app.py", line 132, in _parse_request
+    raise ValueError(f"Invalid request data: {str(e)}")
+ValueError: Invalid request data: 1 validation error for StandaloneInput
+baseline.0.id
+  Field required [type=missing, input_value={'sentence': 'This is a test sentence'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+{"timestamp": "2025-12-18T19:32:01Z", "level": "ERROR", "message": "Job job_20251218193201_2627 failed: Invalid request data: 1 validation error for StandaloneInput\nbaseline.0.id\n  Field required [type=missing, input_value={'sentence': 'This is a test sentence'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing", "logger": "app", "stackTrace": ["  File \"/var/task/app.py\", line 44, in lambda_handler\n    request_data = _parse_request(event)\n", "  File \"/var/task/app.py\", line 132, in _parse_request\n    raise ValueError(f\"Invalid request data: {str(e)}\")\n"], "errorType": "ValueError", "errorMessage": "Invalid request data: 1 validation error for StandaloneInput\nbaseline.0.id\n  Field required [type=missing, input_value={'sentence': 'This is a test sentence'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing", "requestId": "130ed4f5-8221-4771-9f0e-45c68f682bc8", "location": "/var/task/app.py:lambda_handler:78", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 130ed4f5-8221-4771-9f0e-45c68f682bc8
+REPORT RequestId: 130ed4f5-8221-4771-9f0e-45c68f682bc8	Duration: 2.71 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-12-19 08:32:01,517 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test Survey", "theme": "test theme", "baseline": [{"sentence": "First sentence", "id": "duplicate-id"}, {"sentence": "Second sentence", "id": "duplicate-id"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '176', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['176'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,518 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,518 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,518 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,518 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,518 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,518 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,518 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,524 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,525 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,525 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test Survey\", \"theme\": \"test theme\", \"baseline\": [{\"sentence\": \"First sentence\", \"id\": \"duplicate-id\"}, {\"sentence\": \"Second sentence\", \"id\": \"duplicate-id\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "176", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["176"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: 822261a1-dfbe-41f3-a78d-1225866b34c3 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_5944
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_5944", "logger": "app", "requestId": "a10931a1-8911-44f8-bb3e-848d8c871076", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - ERROR - Job job_20251218193201_5944 failed: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  Value error, All sentence IDs must be unique within the baseline [type=value_error, input_value=[{'sentence': 'First sent..., 'id': 'duplicate-id'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
+Traceback (most recent call last):
+  File "/var/task/app.py", line 120, in _parse_request
+    input_model = StandaloneInput(**body)
+  File "/var/task/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for StandaloneInput
+baseline
+  Value error, All sentence IDs must be unique within the baseline [type=value_error, input_value=[{'sentence': 'First sent..., 'id': 'duplicate-id'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/app.py", line 44, in lambda_handler
+    request_data = _parse_request(event)
+  File "/var/task/app.py", line 132, in _parse_request
+    raise ValueError(f"Invalid request data: {str(e)}")
+ValueError: Invalid request data: 1 validation error for StandaloneInput
+baseline
+  Value error, All sentence IDs must be unique within the baseline [type=value_error, input_value=[{'sentence': 'First sent..., 'id': 'duplicate-id'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
+{"timestamp": "2025-12-18T19:32:01Z", "level": "ERROR", "message": "Job job_20251218193201_5944 failed: Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  Value error, All sentence IDs must be unique within the baseline [type=value_error, input_value=[{'sentence': 'First sent..., 'id': 'duplicate-id'}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error", "logger": "app", "stackTrace": ["  File \"/var/task/app.py\", line 44, in lambda_handler\n    request_data = _parse_request(event)\n", "  File \"/var/task/app.py\", line 132, in _parse_request\n    raise ValueError(f\"Invalid request data: {str(e)}\")\n"], "errorType": "ValueError", "errorMessage": "Invalid request data: 1 validation error for StandaloneInput\nbaseline\n  Value error, All sentence IDs must be unique within the baseline [type=value_error, input_value=[{'sentence': 'First sent..., 'id': 'duplicate-id'}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error", "requestId": "a10931a1-8911-44f8-bb3e-848d8c871076", "location": "/var/task/app.py:lambda_handler:78", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: a10931a1-8911-44f8-bb3e-848d8c871076
+REPORT RequestId: a10931a1-8911-44f8-bb3e-848d8c871076	Duration: 2.64 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-12-19 08:32:01,535 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Large Survey", "theme": "performance testing", "baseline": [{"sentence": "Sentence number 0", "id": "id-0"}, {"sentence": "Sentence number 1", "id": "id-1"}, {"sentence": "Sentence number 2", "id": "id-2"}, {"sentence": "Sentence number 3", "id": "id-3"}, {"sentence": "Sentence number 4", "id": "id-4"}, {"sentence": "Sentence number 5", "id": "id-5"}, {"sentence": "Sentence number 6", "id": "id-6"}, {"sentence": "Sentence number 7", "id": "id-7"}, {"sentence": "Sentence number 8", "id": "id-8"}, {"sentence": "Sentence number 9", "id": "id-9"}, {"sentence": "Sentence number 10", "id": "id-10"}, {"sentence": "Sentence number 11", "id": "id-11"}, {"sentence": "Sentence number 12", "id": "id-12"}, {"sentence": "Sentence number 13", "id": "id-13"}, {"sentence": "Sentence number 14", "id": "id-14"}, {"sentence": "Sentence number 15", "id": "id-15"}, {"sentence": "Sentence number 16", "id": "id-16"}, {"sentence": "Sentence number 17", "id": "id-17"}, {"sentence": "Sentence number 18", "id": "id-18"}, {"sentence": "Sentence number 19", "id": "id-19"}, {"sentence": "Sentence number 20", "id": "id-20"}, {"sentence": "Sentence number 21", "id": "id-21"}, {"sentence": "Sentence number 22", "id": "id-22"}, {"sentence": "Sentence number 23", "id": "id-23"}, {"sentence": "Sentence number 24", "id": "id-24"}, {"sentence": "Sentence number 25", "id": "id-25"}, {"sentence": "Sentence number 26", "id": "id-26"}, {"sentence": "Sentence number 27", "id": "id-27"}, {"sentence": "Sentence number 28", "id": "id-28"}, {"sentence": "Sentence number 29", "id": "id-29"}, {"sentence": "Sentence number 30", "id": "id-30"}, {"sentence": "Sentence number 31", "id": "id-31"}, {"sentence": "Sentence number 32", "id": "id-32"}, {"sentence": "Sentence number 33", "id": "id-33"}, {"sentence": "Sentence number 34", "id": "id-34"}, {"sentence": "Sentence number 35", "id": "id-35"}, {"sentence": "Sentence number 36", "id": "id-36"}, {"sentence": "Sentence number 37", "id": "id-37"}, {"sentence": "Sentence number 38", "id": "id-38"}, {"sentence": "Sentence number 39", "id": "id-39"}, {"sentence": "Sentence number 40", "id": "id-40"}, {"sentence": "Sentence number 41", "id": "id-41"}, {"sentence": "Sentence number 42", "id": "id-42"}, {"sentence": "Sentence number 43", "id": "id-43"}, {"sentence": "Sentence number 44", "id": "id-44"}, {"sentence": "Sentence number 45", "id": "id-45"}, {"sentence": "Sentence number 46", "id": "id-46"}, {"sentence": "Sentence number 47", "id": "id-47"}, {"sentence": "Sentence number 48", "id": "id-48"}, {"sentence": "Sentence number 49", "id": "id-49"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '2607', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['2607'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,535 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,535 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,535 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,535 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,535 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,535 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,535 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,540 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,540 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,540 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Large Survey\", \"theme\": \"performance testing\", \"baseline\": [{\"sentence\": \"Sentence number 0\", \"id\": \"id-0\"}, {\"sentence\": \"Sentence number 1\", \"id\": \"id-1\"}, {\"sentence\": \"Sentence number 2\", \"id\": \"id-2\"}, {\"sentence\": \"Sentence number 3\", \"id\": \"id-3\"}, {\"sentence\": \"Sentence number 4\", \"id\": \"id-4\"}, {\"sentence\": \"Sentence number 5\", \"id\": \"id-5\"}, {\"sentence\": \"Sentence number 6\", \"id\": \"id-6\"}, {\"sentence\": \"Sentence number 7\", \"id\": \"id-7\"}, {\"sentence\": \"Sentence number 8\", \"id\": \"id-8\"}, {\"sentence\": \"Sentence number 9\", \"id\": \"id-9\"}, {\"sentence\": \"Sentence number 10\", \"id\": \"id-10\"}, {\"sentence\": \"Sentence number 11\", \"id\": \"id-11\"}, {\"sentence\": \"Sentence number 12\", \"id\": \"id-12\"}, {\"sentence\": \"Sentence number 13\", \"id\": \"id-13\"}, {\"sentence\": \"Sentence number 14\", \"id\": \"id-14\"}, {\"sentence\": \"Sentence number 15\", \"id\": \"id-15\"}, {\"sentence\": \"Sentence number 16\", \"id\": \"id-16\"}, {\"sentence\": \"Sentence number 17\", \"id\": \"id-17\"}, {\"sentence\": \"Sentence number 18\", \"id\": \"id-18\"}, {\"sentence\": \"Sentence number 19\", \"id\": \"id-19\"}, {\"sentence\": \"Sentence number 20\", \"id\": \"id-20\"}, {\"sentence\": \"Sentence number 21\", \"id\": \"id-21\"}, {\"sentence\": \"Sentence number 22\", \"id\": \"id-22\"}, {\"sentence\": \"Sentence number 23\", \"id\": \"id-23\"}, {\"sentence\": \"Sentence number 24\", \"id\": \"id-24\"}, {\"sentence\": \"Sentence number 25\", \"id\": \"id-25\"}, {\"sentence\": \"Sentence number 26\", \"id\": \"id-26\"}, {\"sentence\": \"Sentence number 27\", \"id\": \"id-27\"}, {\"sentence\": \"Sentence number 28\", \"id\": \"id-28\"}, {\"sentence\": \"Sentence number 29\", \"id\": \"id-29\"}, {\"sentence\": \"Sentence number 30\", \"id\": \"id-30\"}, {\"sentence\": \"Sentence number 31\", \"id\": \"id-31\"}, {\"sentence\": \"Sentence number 32\", \"id\": \"id-32\"}, {\"sentence\": \"Sentence number 33\", \"id\": \"id-33\"}, {\"sentence\": \"Sentence number 34\", \"id\": \"id-34\"}, {\"sentence\": \"Sentence number 35\", \"id\": \"id-35\"}, {\"sentence\": \"Sentence number 36\", \"id\": \"id-36\"}, {\"sentence\": \"Sentence number 37\", \"id\": \"id-37\"}, {\"sentence\": \"Sentence number 38\", \"id\": \"id-38\"}, {\"sentence\": \"Sentence number 39\", \"id\": \"id-39\"}, {\"sentence\": \"Sentence number 40\", \"id\": \"id-40\"}, {\"sentence\": \"Sentence number 41\", \"id\": \"id-41\"}, {\"sentence\": \"Sentence number 42\", \"id\": \"id-42\"}, {\"sentence\": \"Sentence number 43\", \"id\": \"id-43\"}, {\"sentence\": \"Sentence number 44\", \"id\": \"id-44\"}, {\"sentence\": \"Sentence number 45\", \"id\": \"id-45\"}, {\"sentence\": \"Sentence number 46\", \"id\": \"id-46\"}, {\"sentence\": \"Sentence number 47\", \"id\": \"id-47\"}, {\"sentence\": \"Sentence number 48\", \"id\": \"id-48\"}, {\"sentence\": \"Sentence number 49\", \"id\": \"id-49\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "2607", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["2607"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: a10da663-614b-4b6a-bff4-2245170e8ff3 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_3426
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_3426", "logger": "app", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'standalone', 'surveyTitle': 'Large Survey', 'theme': 'performance testing', 'baseline': [{'sentence': 'Sentence number 0', 'id': 'id-0'}, {'sentence': 'Sentence number 1', 'id': 'id-1'}, {'sentence': 'Sentence number 2', 'id': 'id-2'}, {'sentence': 'Sentence number 3', 'id': 'id-3'}, {'sentence': 'Sentence number 4', 'id': 'id-4'}, {'sentence': 'Sentence number 5', 'id': 'id-5'}, {'sentence': 'Sentence number 6', 'id': 'id-6'}, {'sentence': 'Sentence number 7', 'id': 'id-7'}, {'sentence': 'Sentence number 8', 'id': 'id-8'}, {'sentence': 'Sentence number 9', 'id': 'id-9'}, {'sentence': 'Sentence number 10', 'id': 'id-10'}, {'sentence': 'Sentence number 11', 'id': 'id-11'}, {'sentence': 'Sentence number 12', 'id': 'id-12'}, {'sentence': 'Sentence number 13', 'id': 'id-13'}, {'sentence': 'Sentence number 14', 'id': 'id-14'}, {'sentence': 'Sentence number 15', 'id': 'id-15'}, {'sentence': 'Sentence number 16', 'id': 'id-16'}, {'sentence': 'Sentence number 17', 'id': 'id-17'}, {'sentence': 'Sentence number 18', 'id': 'id-18'}, {'sentence': 'Sentence number 19', 'id': 'id-19'}, {'sentence': 'Sentence number 20', 'id': 'id-20'}, {'sentence': 'Sentence number 21', 'id': 'id-21'}, {'sentence': 'Sentence number 22', 'id': 'id-22'}, {'sentence': 'Sentence number 23', 'id': 'id-23'}, {'sentence': 'Sentence number 24', 'id': 'id-24'}, {'sentence': 'Sentence number 25', 'id': 'id-25'}, {'sentence': 'Sentence number 26', 'id': 'id-26'}, {'sentence': 'Sentence number 27', 'id': 'id-27'}, {'sentence': 'Sentence number 28', 'id': 'id-28'}, {'sentence': 'Sentence number 29', 'id': 'id-29'}, {'sentence': 'Sentence number 30', 'id': 'id-30'}, {'sentence': 'Sentence number 31', 'id': 'id-31'}, {'sentence': 'Sentence number 32', 'id': 'id-32'}, {'sentence': 'Sentence number 33', 'id': 'id-33'}, {'sentence': 'Sentence number 34', 'id': 'id-34'}, {'sentence': 'Sentence number 35', 'id': 'id-35'}, {'sentence': 'Sentence number 36', 'id': 'id-36'}, {'sentence': 'Sentence number 37', 'id': 'id-37'}, {'sentence': 'Sentence number 38', 'id': 'id-38'}, {'sentence': 'Sentence number 39', 'id': 'id-39'}, {'sentence': 'Sentence number 40', 'id': 'id-40'}, {'sentence': 'Sentence number 41', 'id': 'id-41'}, {'sentence': 'Sentence number 42', 'id': 'id-42'}, {'sentence': 'Sentence number 43', 'id': 'id-43'}, {'sentence': 'Sentence number 44', 'id': 'id-44'}, {'sentence': 'Sentence number 45', 'id': 'id-45'}, {'sentence': 'Sentence number 46', 'id': 'id-46'}, {'sentence': 'Sentence number 47', 'id': 'id-47'}, {'sentence': 'Sentence number 48', 'id': 'id-48'}, {'sentence': 'Sentence number 49', 'id': 'id-49'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'standalone', 'surveyTitle': 'Large Survey', 'theme': 'performance testing', 'baseline': [{'sentence': 'Sentence number 0', 'id': 'id-0'}, {'sentence': 'Sentence number 1', 'id': 'id-1'}, {'sentence': 'Sentence number 2', 'id': 'id-2'}, {'sentence': 'Sentence number 3', 'id': 'id-3'}, {'sentence': 'Sentence number 4', 'id': 'id-4'}, {'sentence': 'Sentence number 5', 'id': 'id-5'}, {'sentence': 'Sentence number 6', 'id': 'id-6'}, {'sentence': 'Sentence number 7', 'id': 'id-7'}, {'sentence': 'Sentence number 8', 'id': 'id-8'}, {'sentence': 'Sentence number 9', 'id': 'id-9'}, {'sentence': 'Sentence number 10', 'id': 'id-10'}, {'sentence': 'Sentence number 11', 'id': 'id-11'}, {'sentence': 'Sentence number 12', 'id': 'id-12'}, {'sentence': 'Sentence number 13', 'id': 'id-13'}, {'sentence': 'Sentence number 14', 'id': 'id-14'}, {'sentence': 'Sentence number 15', 'id': 'id-15'}, {'sentence': 'Sentence number 16', 'id': 'id-16'}, {'sentence': 'Sentence number 17', 'id': 'id-17'}, {'sentence': 'Sentence number 18', 'id': 'id-18'}, {'sentence': 'Sentence number 19', 'id': 'id-19'}, {'sentence': 'Sentence number 20', 'id': 'id-20'}, {'sentence': 'Sentence number 21', 'id': 'id-21'}, {'sentence': 'Sentence number 22', 'id': 'id-22'}, {'sentence': 'Sentence number 23', 'id': 'id-23'}, {'sentence': 'Sentence number 24', 'id': 'id-24'}, {'sentence': 'Sentence number 25', 'id': 'id-25'}, {'sentence': 'Sentence number 26', 'id': 'id-26'}, {'sentence': 'Sentence number 27', 'id': 'id-27'}, {'sentence': 'Sentence number 28', 'id': 'id-28'}, {'sentence': 'Sentence number 29', 'id': 'id-29'}, {'sentence': 'Sentence number 30', 'id': 'id-30'}, {'sentence': 'Sentence number 31', 'id': 'id-31'}, {'sentence': 'Sentence number 32', 'id': 'id-32'}, {'sentence': 'Sentence number 33', 'id': 'id-33'}, {'sentence': 'Sentence number 34', 'id': 'id-34'}, {'sentence': 'Sentence number 35', 'id': 'id-35'}, {'sentence': 'Sentence number 36', 'id': 'id-36'}, {'sentence': 'Sentence number 37', 'id': 'id-37'}, {'sentence': 'Sentence number 38', 'id': 'id-38'}, {'sentence': 'Sentence number 39', 'id': 'id-39'}, {'sentence': 'Sentence number 40', 'id': 'id-40'}, {'sentence': 'Sentence number 41', 'id': 'id-41'}, {'sentence': 'Sentence number 42', 'id': 'id-42'}, {'sentence': 'Sentence number 43', 'id': 'id-43'}, {'sentence': 'Sentence number 44', 'id': 'id-44'}, {'sentence': 'Sentence number 45', 'id': 'id-45'}, {'sentence': 'Sentence number 46', 'id': 'id-46'}, {'sentence': 'Sentence number 47', 'id': 'id-47'}, {'sentence': 'Sentence number 48', 'id': 'id-48'}, {'sentence': 'Sentence number 49', 'id': 'id-49'}]}", "logger": "app", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing standalone analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing standalone analysis request", "logger": "app", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting standalone analysis for job job_20251218193201_3426
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting standalone analysis for job job_20251218193201_3426", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Preprocessing 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 50 sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 50 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 50 -> 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 50 -> 50 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating sentence embeddings
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating sentence embeddings", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 50 sentences", "logger": "src.app.pipeline.embedding", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 50 sentences", "logger": "src.app.pipeline.embedding", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Clustering sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 50 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 50 sentences", "logger": "src.app.pipeline.clustering", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - INFO - Clustering complete: 0 clusters, 50 noise points
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Clustering complete: 0 clusters, 50 noise points", "logger": "src.app.pipeline.clustering", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Analyzing sentiment
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Analyzing sentiment", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating cluster insights
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating cluster insights", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed standalone analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed standalone analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_3426 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_3426 in 0.0ms", "logger": "app", "requestId": "66c144a6-c73c-42b9-928a-9dd3f1019ef2", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 66c144a6-c73c-42b9-928a-9dd3f1019ef2
+REPORT RequestId: 66c144a6-c73c-42b9-928a-9dd3f1019ef2	Duration: 7.20 ms	Billed Duration: 8 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mGET /analyze HTTP/1.1[0m" 403 -
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mPUT /analyze HTTP/1.1[0m" 403 -
+2025-12-19 08:32:01,560 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Header Test", "theme": "testing", "baseline": [{"sentence": "Test sentence for headers", "id": "header-test-001"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '132', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['132'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,560 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,560 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,560 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,560 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,560 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,560 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,560 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,565 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,565 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,565 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Header Test\", \"theme\": \"testing\", \"baseline\": [{\"sentence\": \"Test sentence for headers\", \"id\": \"header-test-001\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "132", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["132"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: 5a5b6c0c-1cff-465e-9c71-6c1bb2a6893d Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_8692
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_8692", "logger": "app", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'standalone', 'surveyTitle': 'Header Test', 'theme': 'testing', 'baseline': [{'sentence': 'Test sentence for headers', 'id': 'header-test-001'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'standalone', 'surveyTitle': 'Header Test', 'theme': 'testing', 'baseline': [{'sentence': 'Test sentence for headers', 'id': 'header-test-001'}]}", "logger": "app", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing standalone analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing standalone analysis request", "logger": "app", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting standalone analysis for job job_20251218193201_8692
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting standalone analysis for job job_20251218193201_8692", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 1 -> 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 1 -> 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating sentence embeddings
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating sentence embeddings", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Clustering sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 1 sentences", "logger": "src.app.pipeline.clustering", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Not enough sentences for clustering, all marked as noise
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Not enough sentences for clustering, all marked as noise", "logger": "src.app.pipeline.clustering", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Analyzing sentiment
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Analyzing sentiment", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating cluster insights
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating cluster insights", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed standalone analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed standalone analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_8692 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_8692 in 0.0ms", "logger": "app", "requestId": "6ba23fa4-c18b-4529-bbf3-f15f565f1397", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 6ba23fa4-c18b-4529-bbf3-f15f565f1397
+REPORT RequestId: 6ba23fa4-c18b-4529-bbf3-f15f565f1397	Duration: 4.20 ms	Billed Duration: 5 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -
+2025-12-19 08:32:01,577 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test Survey", "theme": "test theme", "baseline": [{"sentence": "Test sentence", "id": "test-001"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '116', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Type': ['application/json'], 'Content-Length': ['116'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,577 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,577 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,577 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,577 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,577 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,577 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,577 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,581 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,581 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,581 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test Survey\", \"theme\": \"test theme\", \"baseline\": [{\"sentence\": \"Test sentence\", \"id\": \"test-001\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "116", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["116"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: f922d8e3-7216-40a5-8bdf-1c8cf2ac9030 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_6451
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_6451", "logger": "app", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'standalone', 'surveyTitle': 'Test Survey', 'theme': 'test theme', 'baseline': [{'sentence': 'Test sentence', 'id': 'test-001'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'standalone', 'surveyTitle': 'Test Survey', 'theme': 'test theme', 'baseline': [{'sentence': 'Test sentence', 'id': 'test-001'}]}", "logger": "app", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing standalone analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing standalone analysis request", "logger": "app", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting standalone analysis for job job_20251218193201_6451
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting standalone analysis for job job_20251218193201_6451", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 1 -> 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 1 -> 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating sentence embeddings
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating sentence embeddings", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Clustering sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 1 sentences", "logger": "src.app.pipeline.clustering", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Not enough sentences for clustering, all marked as noise
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Not enough sentences for clustering, all marked as noise", "logger": "src.app.pipeline.clustering", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Analyzing sentiment
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Analyzing sentiment", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating cluster insights
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating cluster insights", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed standalone analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed standalone analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_6451 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_6451 in 0.0ms", "logger": "app", "requestId": "108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: 108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7
+REPORT RequestId: 108aec1f-fe2a-469e-8a19-6ae3ebcbf6d7	Duration: 3.48 ms	Billed Duration: 4 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "[31m[1mGET / HTTP/1.1[0m" 403 -
+2025-12-19 08:32:01,595 | Constructed Event 1.0 to invoke Lambda. Event: {'httpMethod': 'POST', 'body': '{"surveyTitle": "Test", "theme": "Test", "baseline": [{"sentence": "Test", "id": "test"}]}', 'resource': '/analyze', 'requestContext': {'resourceId': '123456', 'apiId': '1234567890', 'resourcePath': '/analyze', 'httpMethod': 'POST', 'requestId': '16749f7c-c7e3-49e9-a48d-8bbd9f99be8d', 'accountId': '123456789012', 'stage': 'Prod', 'identity': {'apiKey': None, 'userArn': None, 'cognitoAuthenticationType': None, 'caller': None, 'userAgent': 'Custom User Agent String', 'user': None, 'cognitoIdentityPoolId': None, 'cognitoAuthenticationProvider': None, 'sourceIp': '127.0.0.1', 'accountId': None}, 'extendedRequestId': None, 'path': '/analyze', 'protocol': 'HTTP/1.1', 'domainName': '127.0.0.1:3000', 'requestTimeEpoch': 1766086280875, 'requestTime': '18/Dec/2025:19:31:20 +0000'}, 'queryStringParameters': None, 'multiValueQueryStringParameters': None, 'headers': {'Host': '127.0.0.1:3000', 'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '90', 'Content-Type': 'application/json', 'X-Forwarded-Proto': 'http', 'X-Forwarded-Port': '3000'}, 'multiValueHeaders': {'Host': ['127.0.0.1:3000'], 'User-Agent': ['python-requests/2.32.5'], 'Accept-Encoding': ['gzip, deflate'], 'Accept': ['*/*'], 'Connection': ['keep-alive'], 'Content-Length': ['90'], 'Content-Type': ['application/json'], 'X-Forwarded-Proto': ['http'], 'X-Forwarded-Port': ['3000']}, 'pathParameters': None, 'stageVariables': None, 'path': '/analyze', 'isBase64Encoded': False}
+2025-12-19 08:32:01,595 | Found one Lambda function with name 'TextAnalysisFunction'
+2025-12-19 08:32:01,595 | Invoking app.lambda_handler (python3.13)
+2025-12-19 08:32:01,595 | Environment variables data found for specific function in standard format
+2025-12-19 08:32:01,595 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,595 | Resolved absolute path to code is /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,596 | Resolving code path. Cwd=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build, CodeUri=/home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,596 | Resolved real code path to /home/anton/git/backend-task-2025/text-analysis-service/.aws-sam/build/TextAnalysisFunction
+2025-12-19 08:32:01,602 | Lambda function 'TextAnalysisFunction' is already running
+2025-12-19 08:32:01,602 | Starting a timer for 30 seconds for function 'TextAnalysisFunction'
+2025-12-19 08:32:01,602 | Container-c66736818019 (concurrency available: 1/1) - ALLOWED for request ({"body": "{\"surveyTitle\": \"Test\", \"theme\": \"Test\", \"baseline\": [{\"sentence\": \"Test\", \"id\": \"test\"}]}", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Content-Length": "90", "Content-Type": "application/json", "Host": "127.0.0.1:3000", "User-Agent": "python-requests/2.32.5", "X-Forwarded-Port": "3000", "X-Forwarded-Proto": "http"}, "httpMethod": "POST", "isBase64Encoded": false, "multiValueHeaders": {"Accept": ["*/*"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Content-Length": ["90"], "Content-Type": ["application/json"], "Host": ["127.0.0.1:3000"], "User-Agent": ["python-requests/2.32.5"], "X-Forwarded-Port": ["3000"], "X-Forwarded-Proto": ["http"]}, "multiValueQueryStringParameters": null, "path": "/analyze", "pathParameters": null, "queryStringParameters": null, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "domainName": "127.0.0.1:3000", "extendedRequestId": null, "httpMethod": "POST", "identity": {"accountId": null, "apiKey": null, "caller": null, "cognitoAuthenticationProvider": null, "cognitoAuthenticationType": null, "cognitoIdentityPoolId": null, "sourceIp": "127.0.0.1", "user": null, "userAgent": "Custom User Agent String", "userArn": null}, "path": "/analyze", "protocol": "HTTP/1.1", "requestId": "16749f7c-c7e3-49e9-a48d-8bbd9f99be8d", "requestTime": "18/Dec/2025:19:31:20 +0000", "requestTimeEpoch": 1766086280875, "resourceId": "123456", "resourcePath": "/analyze", "stage": "Prod"}, "resource": "/analyze", "stageVariables": null})
+START RequestId: 5667e92e-79ee-4abe-9c12-4921073b5e95 Version: $LATEST
+2025-12-18 19:32:01 - app - INFO - Starting text analysis job job_20251218193201_5887
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting text analysis job job_20251218193201_5887", "logger": "app", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - DEBUG - Parsed request: {'type': 'standalone', 'surveyTitle': 'Test', 'theme': 'Test', 'baseline': [{'sentence': 'Test', 'id': 'test'}]}
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Parsed request: {'type': 'standalone', 'surveyTitle': 'Test', 'theme': 'Test', 'baseline': [{'sentence': 'Test', 'id': 'test'}]}", "logger": "app", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - TextPreprocessor initialized
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "TextPreprocessor initialized", "logger": "src.app.pipeline.preprocessing", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "EmbeddingModel initialized with model: sentence-transformers/all-MiniLM-L6-v2", "logger": "src.app.pipeline.embedding", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ClusterAnalyzer initialized: threshold=0.7, min_size=2, seed=42", "logger": "src.app.pipeline.clustering", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - SentimentAnalyzer initialized with 15 positive and 15 negative keywords
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "SentimentAnalyzer initialized with 15 positive and 15 negative keywords", "logger": "src.app.pipeline.sentiment", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.insights - DEBUG - InsightGenerator initialized with template-based logic
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "InsightGenerator initialized with template-based logic", "logger": "src.app.pipeline.insights", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.comparison - DEBUG - ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "ComparisonAnalyzer initialized with similarity_threshold=0.7, min_cluster_size=2", "logger": "src.app.pipeline.comparison", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - PipelineOrchestrator initialized with all components
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "PipelineOrchestrator initialized with all components", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Processing standalone analysis request
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Processing standalone analysis request", "logger": "app", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Starting standalone analysis for job job_20251218193201_5887
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Starting standalone analysis for job job_20251218193201_5887", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.preprocessing - DEBUG - Preprocessing complete: 1 -> 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Preprocessing complete: 1 -> 1 sentences", "logger": "src.app.pipeline.preprocessing", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating sentence embeddings
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating sentence embeddings", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Generating embeddings for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating embeddings for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - DEBUG - Cache miss for 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Cache miss for 1 sentences", "logger": "src.app.pipeline.embedding", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.embedding - WARNING - Using placeholder embeddings - implement HuggingFace model
+{"timestamp": "2025-12-18T19:32:01Z", "level": "WARNING", "message": "Using placeholder embeddings - implement HuggingFace model", "logger": "src.app.pipeline.embedding", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Clustering sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering sentences", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Clustering 1 sentences
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Clustering 1 sentences", "logger": "src.app.pipeline.clustering", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.clustering - DEBUG - Not enough sentences for clustering, all marked as noise
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Not enough sentences for clustering, all marked as noise", "logger": "src.app.pipeline.clustering", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Analyzing sentiment
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Analyzing sentiment", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.sentiment - DEBUG - Aggregating sentiment for 1 clusters
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Aggregating sentiment for 1 clusters", "logger": "src.app.pipeline.sentiment", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - DEBUG - Generating cluster insights
+{"timestamp": "2025-12-18T19:32:01Z", "level": "DEBUG", "message": "Generating cluster insights", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - src.app.pipeline.orchestrator - INFO - Completed standalone analysis in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed standalone analysis in 0.0ms", "logger": "src.app.pipeline.orchestrator", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+2025-12-18 19:32:01 - app - INFO - Completed job job_20251218193201_5887 in 0.0ms
+{"timestamp": "2025-12-18T19:32:01Z", "level": "INFO", "message": "Completed job job_20251218193201_5887 in 0.0ms", "logger": "app", "requestId": "d418332d-c420-4365-8124-13a76ea7c441", "aws_region": "us-east-1", "lambda_function": "TextAnalysisFunction", "lambda_version": "$LATEST", "asctime": "2025-12-18 19:32:01"}
+END RequestId: d418332d-c420-4365-8124-13a76ea7c441
+REPORT RequestId: d418332d-c420-4365-8124-13a76ea7c441	Duration: 3.67 ms	Billed Duration: 4 ms	Memory Size: 1024 MB	Max Memory Used: 1024 MB	
+
+2025-12-19 08:32:01 127.0.0.1 - - [19/Dec/2025 08:32:01] "POST /analyze HTTP/1.1" 200 -

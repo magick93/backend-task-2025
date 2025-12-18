@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  text-analysis-service
+  
+  Serverless text analysis microservice for clustering and sentiment analysis.
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 1024
+    Runtime: python3.13
+    Architectures:
+      - x86_64
+    Tracing: Active
+    LoggingConfig:
+      LogFormat: JSON
+  Api:
+    TracingEnabled: true
+
+Resources:
+  TextAnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/text-analysis/
+      Handler: app.lambda_handler
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /analyze
+            Method: POST
+      Environment:
+        Variables:
+          LOG_LEVEL: INFO
+      Policies:
+        - AWSLambdaBasicExecutionRole
+
+Outputs:
+  TextAnalysisApi:
+    Description: API Gateway endpoint URL for Prod stage
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/Prod/analyze
+  TextAnalysisFunction:
+    Description: Text Analysis Lambda Function ARN
+    Value: !GetAtt TextAnalysisFunction.Arn
+  TextAnalysisFunctionIamRole:
+    Description: Implicit IAM Role created for Text Analysis function
+    Value: !GetAtt TextAnalysisFunctionRole.Arn

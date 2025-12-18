@@ -1,16 +1,3 @@
-I'll help clarify the task! Let me answer your questions:
-
-## Do I need to discover themes?
-
-**No, themes are already provided.** Looking at the input format, you receive:
-- `theme`: "account" (already labeled in the input)
-- `baseline`: sentences that are all about that theme
-
-Your job is to discover **sub-themes/clusters within that theme**, not the theme itself.
-
-For example:
-- Input theme: "account"
-- Your clusters might be: "Login Issues", "Password Reset Problems", "Account Verification", etc.
 
 ## Simplified Task Description
 
@@ -41,4 +28,21 @@ A serverless API that groups similar sentences into meaningful clusters and anal
 
 ### The "Extra" Part
 There's also a comparison mode (baseline vs comparison datasets), but that's secondary - design with it in mind but implement the basic version first.
+
+
+# The task
+
+We have a basic function working in `/home/anton/git/backend-task-2025/text-analysis-service` that can be run locally using `sam local invoke TextAnalysisFunction --event test_event.json`.
+
+Review `READ
+
+
+Update the structure, tests and functions in `text-analysis-service` folder to match `The Flow` described above. 
+Your approach should be to keep running the unit tests and ensure that as you migrate to the AWS sam / serverless approach, the unit tests continue to run and pass. An example of the amazon web services serverless structure and syntax can be found in `aws-sam-sample/text-analysis`.
+
+You should also test that the functions work locally using `sam local invoke <function_logical_id> [options]`
+
+
+
+
 

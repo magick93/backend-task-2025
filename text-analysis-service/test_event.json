@@ -1,0 +1,18 @@
+{
+  "surveyTitle": "Robinhood App Store",
+  "theme": "account",
+  "baseline": [
+    {
+      "sentence": "The app is easy to use and intuitive.",
+      "id": "s1"
+    },
+    {
+      "sentence": "I had trouble withdrawing my funds.",
+      "id": "s2"
+    },
+    {
+      "sentence": "Customer support was very helpful.",
+      "id": "s3"
+    }
+  ]
+}

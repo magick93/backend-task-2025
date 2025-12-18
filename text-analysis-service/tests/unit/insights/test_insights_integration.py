@@ -228,7 +228,7 @@ class TestClusterInsightsIntegration:
         
         # Should identify "The" as common starter
         patterns = insights['patterns']
-        assert any("Often starts with 'the'" in p.lower() for p in patterns)
+        assert any("often starts with 'the'" in p.lower() for p in patterns)
     
     def test_generate_cluster_insights_with_missing_sentiment_info(self):
         """Test cluster insights with incomplete sentiment info."""

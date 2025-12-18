@@ -212,8 +212,8 @@ class TestDeterministicBehavior:
         rep2 = insights2['representative_sentences']
         
         assert rep1 == rep2
-        # Should be ["A", "B", "C"] in that order (closest to centroid)
-        assert rep1 == ["A", "B", "C"]
+        # Should be ["C", "B", "A"] in that order (closest to centroid based on given embeddings)
+        assert rep1 == ["C", "B", "A"]
     
     def test_deterministic_across_multiple_instances(self):
         """Test that different generator instances produce same results."""

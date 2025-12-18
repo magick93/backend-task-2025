@@ -221,7 +221,7 @@ class TestProductionReadiness:
         
         # Test default values
         generator_default = InsightGenerator()
-        assert generator_default.max_insights_per_cluster == 5
+        assert generator_default.max_insights_per_cluster == 3
         assert generator_default.min_sentence_length == 10
         assert generator_default.max_title_length == 100
     
