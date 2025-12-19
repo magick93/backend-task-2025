@@ -25,7 +25,7 @@ TODO for production enhancements:
 """
 
 from typing import List, Optional, Dict, Any
-from pydantic import BaseModel, Field, field_validator, conlist, FieldValidationInfo
+from pydantic import BaseModel, Field, field_validator, conlist, ValidationInfo, ConfigDict
 from uuid import UUID
 import re
 from datetime import datetime
@@ -73,13 +73,14 @@ class Sentence(BaseModel):
             raise ValueError('ID must contain only alphanumeric characters, hyphens, underscores, or dots')
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "sentence": "The user interface is very intuitive and easy to use",
                 "id": "7d4aa701-f1b2-41eb-b42c-c59e8e1d5091"
             }
         }
+    )
 
 
 class StandaloneInput(BaseModel):
@@ -128,8 +129,8 @@ class StandaloneInput(BaseModel):
             raise ValueError('All sentence IDs must be unique within the baseline')
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "surveyTitle": "Robinhood App Store Reviews",
                 "theme": "Account Management",
@@ -145,6 +146,7 @@ class StandaloneInput(BaseModel):
                 ]
             }
         }
+    )
 
 
 class ComparisonInput(BaseModel):
@@ -189,7 +191,7 @@ class ComparisonInput(BaseModel):
     )
     
     @field_validator('baseline', 'comparison')
-    def validate_unique_ids_within_each_list(cls, v, info: FieldValidationInfo):
+    def validate_unique_ids_within_each_list(cls, v, info: ValidationInfo):
         """Ensure all sentence IDs are unique within each list."""
         ids = [sentence.id for sentence in v]
         if len(ids) != len(set(ids)):
@@ -197,7 +199,7 @@ class ComparisonInput(BaseModel):
         return v
     
     @field_validator('comparison')
-    def validate_comparison_not_identical_to_baseline(cls, v, info: FieldValidationInfo):
+    def validate_comparison_not_identical_to_baseline(cls, v, info: ValidationInfo):
         """Ensure comparison is not identical to baseline (optional but recommended)."""
         if info.data and 'baseline' in info.data:
             baseline_ids = {s.id for s in info.data['baseline']}
@@ -208,8 +210,8 @@ class ComparisonInput(BaseModel):
                 pass
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "surveyTitle": "Airline Food Service Reviews",
                 "theme": "Food Quality",
@@ -235,6 +237,7 @@ class ComparisonInput(BaseModel):
                 ]
             }
         }
+    )
 
 
 class ClusterInsight(BaseModel):
@@ -287,8 +290,8 @@ class ClusterInsight(BaseModel):
                 raise ValueError('Sentence ID cannot be empty')
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "title": "Money Withdrawal Issues",
                 "sentiment": "negative",
@@ -302,6 +305,7 @@ class ClusterInsight(BaseModel):
                 ]
             }
         }
+    )
 
 
 class ComparisonCluster(BaseModel):
@@ -362,8 +366,8 @@ class ComparisonCluster(BaseModel):
                 raise ValueError('Sentence ID cannot be empty')
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "title": "Food Quality Complaints",
                 "sentiment": "negative",
@@ -377,6 +381,7 @@ class ComparisonCluster(BaseModel):
                 ]
             }
         }
+    )
 
 
 class StandaloneOutput(BaseModel):
@@ -428,8 +433,8 @@ class StandaloneOutput(BaseModel):
         
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "clusters": [
                     {
@@ -454,6 +459,7 @@ class StandaloneOutput(BaseModel):
                 }
             }
         }
+    )
 
 
 class ComparisonOutput(BaseModel):
@@ -515,8 +521,8 @@ class ComparisonOutput(BaseModel):
         
         return v
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "clusters": [
                     {
@@ -542,6 +548,7 @@ class ComparisonOutput(BaseModel):
                 }
             }
         }
+    )
 
 
 class ErrorResponse(BaseModel):
@@ -580,8 +587,8 @@ class ErrorResponse(BaseModel):
         description="Timestamp when the error occurred"
     )
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "error": "ValidationError",
                 "message": "Invalid input data",
@@ -594,6 +601,7 @@ class ErrorResponse(BaseModel):
                 "timestamp": "2024-01-15T10:30:00Z"
             }
         }
+    )
 
 
 # Export all schemas for easy import
