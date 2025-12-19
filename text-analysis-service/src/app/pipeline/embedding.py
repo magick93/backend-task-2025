@@ -9,13 +9,20 @@ Encapsulates HuggingFace logic for:
 No clustering or sentiment logic here.
 """
 
+import os
 from typing import List, Optional, Dict, Any
 import numpy as np
 from functools import lru_cache
 
-# TODO: Uncomment when transformers is available
-# from transformers import AutoTokenizer, AutoModel
-# import torch
+# Set HF_HOME to /tmp/huggingface for Lambda compatibility
+# This must be done before importing transformers/sentence_transformers
+os.environ['HF_HOME'] = '/tmp/huggingface'
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    # Fallback for when dependencies aren't installed (e.g. during some local tests)
+    SentenceTransformer = None
 
 from ..utils.logging import setup_logger
 
@@ -31,9 +38,10 @@ class EmbeddingModel:
     """
     
     def __init__(
-        self, 
+        self,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-        cache_size: int = 1000
+        cache_size: int = 1000,
+        device: Optional[str] = None
     ):
         """
         Initialize the embedding model.
@@ -41,18 +49,58 @@ class EmbeddingModel:
         Args:
             model_name: HuggingFace model name
             cache_size: Maximum number of sentences to cache
+            device: Device to run model on ('cpu', 'cuda', etc.). If None, auto-detects.
         """
         self.model_name = model_name
         self.cache_size = cache_size
+        self.device = device
         
         # Initialize model lazily
-        self._tokenizer = None
         self._model = None
         
         # Initialize cache
         self._embedding_cache: Dict[str, np.ndarray] = {}
         
-        logger.debug(f"EmbeddingModel initialized with model: {model_name}")
+        logger.debug(f"EmbeddingModel initialized with model: {model_name}, device: {device}")
+    
+    @property
+    def model(self):
+        """Lazy loading of the SentenceTransformer model."""
+        if self._model is None:
+            if SentenceTransformer is None:
+                raise ImportError("sentence-transformers not installed")
+            
+            logger.info(f"Loading embedding model: {self.model_name}...")
+            # cache_folder is automatically handled by HF_HOME environment variable
+            self._model = SentenceTransformer(self.model_name)
+            
+            # Move model to specified device if provided
+            if self.device is not None:
+                logger.debug(f"Moving model to device: {self.device}")
+                self._model = self._model.to(self.device)
+            else:
+                # Auto-detect: try CUDA, fallback to CPU
+                try:
+                    import torch
+                    # Force CPU in test environment or if CUDA is incompatible
+                    if os.environ.get('ENVIRONMENT') == 'test':
+                        logger.debug("Test environment detected, forcing CPU")
+                        self._model = self._model.to('cpu')
+                    elif torch.cuda.is_available():
+                        logger.debug("CUDA available, attempting to move model to CUDA")
+                        try:
+                            self._model = self._model.to('cuda')
+                        except (RuntimeError, torch.cuda.CudaError) as e:
+                            logger.warning(f"CUDA error moving model to GPU: {e}. Falling back to CPU.")
+                            self._model = self._model.to('cpu')
+                    else:
+                        logger.debug("CUDA not available, using CPU")
+                except ImportError:
+                    logger.debug("Torch not available, using default device")
+            
+            logger.info(f"Successfully loaded embedding model: {self.model_name}")
+            
+        return self._model
     
     def embed(self, sentences: List[str]) -> np.ndarray:
         """
@@ -125,29 +173,13 @@ class EmbeddingModel:
         Returns:
             numpy array of embeddings
         """
-        # TODO: Implement actual HuggingFace model inference
-        # For now, return placeholder embeddings for scaffolding
+        # Use the actual model for encoding
+        embeddings = self.model.encode(sentences)
         
-        logger.warning("Using placeholder embeddings - implement HuggingFace model")
-        
-        # Placeholder: random embeddings with deterministic seed
-        np.random.seed(42)
-        n_sentences = len(sentences)
-        embedding_dim = 384  # all-MiniLM-L6-v2 has 384 dimensions
-        
-        # Generate deterministic "embeddings" based on sentence length
-        embeddings = np.zeros((n_sentences, embedding_dim))
-        for i, sentence in enumerate(sentences):
-            # Simple deterministic hash for reproducibility
-            seed = hash(sentence) % (2**32)
-            np.random.seed(seed)
-            embeddings[i] = np.random.randn(embedding_dim)
+        # Ensure it returns numpy array (SentenceTransformer usually does, but to be safe)
+        if not isinstance(embeddings, np.ndarray):
+            embeddings = np.array(embeddings)
             
-            # Normalize to unit length (cosine similarity expects normalized vectors)
-            norm = np.linalg.norm(embeddings[i])
-            if norm > 0:
-                embeddings[i] /= norm
-        
         return embeddings
     
     def _update_cache(self, sentence: str, embedding: np.ndarray) -> None:

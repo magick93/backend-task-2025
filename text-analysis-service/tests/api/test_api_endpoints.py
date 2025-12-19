@@ -188,28 +188,21 @@ class TestAPIEndpoints:
         
         # Assert result structure for comparison
         result = response_data["result"]
-        # Comparison result contains baseline, comparison, comparison_analysis, processing_metadata
-        assert "baseline" in result
-        assert "comparison" in result
-        assert "comparison_analysis" in result
-        assert "processing_metadata" in result
         
-        # Validate baseline structure
-        baseline = result["baseline"]
-        assert "clusters" in baseline
-        assert isinstance(baseline["clusters"], list)
+        # New format verification
+        assert "clusters" in result
+        assert isinstance(result["clusters"], list)
+        assert "metadata" in result
         
-        # Validate comparison structure
-        comparison = result["comparison"]
-        assert "clusters" in comparison
-        assert isinstance(comparison["clusters"], list)
-        
-        # Validate comparison_analysis structure
-        comparison_analysis = result["comparison_analysis"]
-        assert "similarities" in comparison_analysis
-        assert "differences" in comparison_analysis
-        assert "similarity_score" in comparison_analysis
-        assert "summary" in comparison_analysis
+        # If clusters are returned, validate their structure
+        if result["clusters"]:
+            cluster = result["clusters"][0]
+            assert "title" in cluster
+            assert "sentiment" in cluster
+            assert "baselineSentences" in cluster
+            assert "comparisonSentences" in cluster
+            assert "keySimilarities" in cluster
+            assert "keyDifferences" in cluster
     
     def test_malformed_json(self):
         """Test handling of malformed JSON request body."""

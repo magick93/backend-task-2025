@@ -39,16 +39,16 @@ The pipeline includes:
 
 3. Set up environment variables (optional):
    ```bash
-   cp .env.example .env
-   # Edit .env as needed
+   cp local-env-vars.example.json local-env-vars.json
+   # Edit local-env-vars.json as needed
    ```
 
 ### Running Locally with SAM
 
 1. Start SAM local API and Lambda services:
    ```bash
-   sam local start-api --port 3000 --template template.yaml --env-vars .env
-   sam local start-lambda --port 3001 --template template.yaml --env-vars .env
+   sam local start-api --port 3000 --template template.yaml --env-vars local-env-vars.json
+   sam local start-lambda --port 3001 --template template.yaml --env-vars local-env-vars.json
    ```
 
 2. Test the endpoints:
@@ -153,25 +153,56 @@ sam local start-api --port 3000
 sam local start-lambda --port 3001
 ```
 
-### 3. Environment Variables
+### 3. Configuration
 
-Create a `.env` file with the following JSON format:
+The service uses a three-tiered configuration approach:
 
-```json
-{
-  "Parameters": {
-    "EmbeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
-    "ClusterThreshold": 0.7,
-    "MinClusterSize": 2
-  }
-}
-```
+1.  **`local-env-vars.json`**:
+    *   Used for **local SAM environment variables** (e.g., overriding `LOG_LEVEL` or function-specific env vars).
+    *   Format:
+        ```json
+        {
+          "TextAnalysisFunction": {
+            "LOG_LEVEL": "DEBUG"
+          }
+        }
+        ```
+    *   `TextAnalysisFunction` is the logical ID of the Lambda function in `template.yaml`.
+
+2.  **`infra/parameters.json`**:
+    *   Used for **non-secret deployment configuration** (e.g., service name, OTel endpoint).
+    *   These are passed as template parameters.
+
+3.  **Parameter Overrides**:
+    *   Used for **secrets** like `HoneycombApiKey`.
+    *   These should be passed via command line or CI/CD secrets, not committed to code.
+
+4.  **`.env` file** (for local testing script):
+    *   The `run_local_tests.sh` script supports reading secrets from a `.env` file.
+    *   Create a `.env` file (gitignored) containing `HONEYCOMB_API_KEY=your_key` and it will be automatically picked up and passed as a parameter override.
+    *   **Distinction**: Use `.env` for **script secrets** (passed to SAM CLI), while `local-env-vars.json` is for **Lambda environment variables** (injected into the container).
 
 ### 4. Debugging
 
 - Use `--debug` flag with SAM commands for verbose output.
 - Check logs in `.aws-sam/logs/`.
 - Use the `--no-cleanup` flag with `run_local_tests.sh` to keep services running for manual testing.
+
+## Observability
+
+This service is instrumented with OpenTelemetry to provide distributed tracing and observability. It is configured to export telemetry data to Honeycomb.io.
+
+### Configuration
+
+To enable Honeycomb tracing, you need to provide your Honeycomb API Key.
+
+**Pass Parameter during Deployment/Local Run**:
+Pass the parameter key when running SAM commands:
+```bash
+sam local start-api --parameter-overrides HoneycombApiKey=your-api-key-here OtelServiceName=my-service
+```
+
+> **Note**: If the `HoneycombApiKey` is not provided or left as the default "replace-me", the OpenTelemetry export will effectively be disabled (or fail to authenticate), ensuring no invalid data is sent.
 
 ## Project Structure
 

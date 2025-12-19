@@ -16,7 +16,7 @@ The current implementation demonstrates a solid foundation for a text analysis m
 
 ### Weaknesses
 1. **Placeholder ML implementations** - embedding, clustering, and sentiment analysis use simple heuristics instead of actual models
-2. **Code duplication** - identical code exists in `src/` and `functions/text-analysis/src/`
+2. **Code duplication** - identical code exists in `src/` and `functions/text_analysis/src/`
 3. **Incomplete comparative analysis** - output format doesn't match requirements from `Original.md`
 4. **Missing production ML dependencies** - transformers, torch, and VADER are commented out in requirements
 5. **Performance considerations** - no caching strategy for model loading in Lambda cold starts
@@ -25,18 +25,18 @@ The current implementation demonstrates a solid foundation for a text analysis m
 ## Architecture & Code Recommendations
 
 ### 1. Resolve Code Duplication
-**Issue**: Identical code exists in both `src/` and `functions/text-analysis/src/` directories.
+**Issue**: Identical code exists in both `src/` and `functions/text_analysis/src/` directories.
 
 **Recommendation**:
 - Create a shared Python package (`text_analysis_service`) installed as a dependency
 - Update SAM template to reference the package instead of duplicated code
-- Maintain `src/` as the source directory and `functions/text-analysis/` as the Lambda deployment package
+- Maintain `src/` as the source directory and `functions/text_analysis/` as the Lambda deployment package
 
 **Implementation Steps**:
 1. Convert `src/` into a proper Python package with `setup.py`
-2. Update `functions/text-analysis/requirements.txt` to include the local package
+2. Update `functions/text_analysis/requirements.txt` to include the local package
 3. Modify SAM template to use packaged dependencies
-4. Remove duplicated code from `functions/text-analysis/src/`
+4. Remove duplicated code from `functions/text_analysis/src/`
 
 ### 2. Improve Pipeline Architecture
 **Issue**: Tight coupling between pipeline components makes testing and replacement difficult.

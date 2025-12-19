@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="6" failures="14" skipped="13" tests="248" time="95.553" timestamp="2025-12-19T15:03:33.356881+13:00" hostname="anton-Precision-7730"><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_api_health" time="0.003" /><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_standalone_analysis_success" time="10.011"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:122: in test_standalone_analysis_success
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_comparison_analysis_success" time="10.011"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:171: in test_comparison_analysis_success
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=10)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_malformed_json" time="5.006"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:210: in test_malformed_json
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_missing_required_fields" time="5.007"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:240: in test_missing_required_fields
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_empty_sentences_list" time="5.007"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:269: in test_empty_sentences_list
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_invalid_sentence_format" time="5.006"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:295: in test_invalid_sentence_format
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_duplicate_sentence_ids" time="5.006"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:321: in test_duplicate_sentence_ids
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=5)</failure></testcase><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_large_request_size" time="6.030" /><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_unsupported_http_method" time="0.004" /><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_response_headers" time="4.368" /><testcase classname="tests.api.test_api_endpoints.TestAPIEndpoints" name="test_comparison_missing_comparison_field" time="4.910" /><testcase classname="tests.api.test_api_endpoints.TestAPIAvailability" name="test_api_not_available_skips_tests" time="2.006"><failure message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=2)">venv/lib/python3.13/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:1430: in getresponse
+    response.begin()
+/usr/lib/python3.13/http/client.py:331: in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/http/client.py:292: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/socket.py:719: in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+venv/lib/python3.13/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+venv/lib/python3.13/site-packages/urllib3/util/retry.py:474: in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+venv/lib/python3.13/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=2)
+
+During handling of the above exception, another exception occurred:
+tests/api/test_api_endpoints.py:454: in test_api_not_available_skips_tests
+    response = requests.post(
+venv/lib/python3.13/site-packages/requests/api.py:115: in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=3000): Read timed out. (read timeout=2)</failure></testcase><testcase classname="tests.integration.test_comparison.TestComparisonPipelineIntegration" name="test_process_comparison_basic" time="0.041" /><testcase classname="tests.integration.test_comparison.TestComparisonPipelineIntegration" name="test_process_comparison_empty_datasets" time="0.013" /><testcase classname="tests.integration.test_comparison.TestComparisonPipelineIntegration" name="test_process_comparison_error_handling" time="0.014" /><testcase classname="tests.integration.test_comparison.TestComparisonPipelineIntegration" name="test_comparison_output_schema_compatibility" time="0.018" /><testcase classname="tests.integration.test_comparison.TestComparisonPipelineIntegration" name="test_comparison_analyzer_integration" time="0.001" /><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_standalone" time="0.011"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_comparison" time="0.000"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_malformed_payload" time="0.000"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_empty_sentences" time="0.000"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_error_response_format" time="0.000"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalIntegration" name="test_lambda_local_invocation_types" time="0.000"><error message="failed on setup with &quot;botocore.exceptions.ProfileNotFound: The config profile () could not be found&quot;">tests/integration/test_lambda_local.py:64: in lambda_client
+    return boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</error></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalConnection" name="test_endpoint_configuration" time="0.007"><failure message="botocore.exceptions.ProfileNotFound: The config profile () could not be found">tests/integration/test_lambda_local.py:457: in test_endpoint_configuration
+    client = boto3.client(
+venv/lib/python3.13/site-packages/boto3/__init__.py:93: in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/__init__.py:81: in _get_default_session
+    setup_default_session()
+venv/lib/python3.13/site-packages/boto3/__init__.py:35: in setup_default_session
+    DEFAULT_SESSION = Session(**kwargs)
+                      ^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/boto3/session.py:106: in __init__
+    self._setup_loader()
+venv/lib/python3.13/site-packages/boto3/session.py:147: in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:816: in get_component
+    return self._components.get_component(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:1201: in get_component
+    self._components[name] = factory()
+                             ^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:201: in &lt;lambda&gt;
+    lambda: create_loader(self.get_config_variable('data_path')),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:325: in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+venv/lib/python3.13/site-packages/botocore/configprovider.py:502: in get_config_variable
+    return provider.provide()
+           ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:708: in provide
+    value = provider.provide()
+            ^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/configprovider.py:795: in provide
+    scoped_config = self._session.get_scoped_config()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.13/site-packages/botocore/session.py:424: in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+E   botocore.exceptions.ProfileNotFound: The config profile () could not be found</failure></testcase><testcase classname="tests.integration.test_lambda_local.TestLambdaLocalConnection" name="test_connection_error_when_not_running" time="0.000"><skipped type="pytest.skip" message="SAM local Lambda is running, test only when not available">/home/anton/git/backend-task-2025/text-analysis-service/tests/integration/test_lambda_local.py:468: SAM local Lambda is running, test only when not available</skipped></testcase><testcase classname="tests.integration.test_lambda_local" name="test_lambda_local_marker_registration" time="0.000" /><testcase classname="tests.integration.test_real_data.TestRealDataPipeline" name="test_process_standalone_real_data" time="0.069" /><testcase classname="tests.integration.test_real_data.TestRealDataPipeline" name="test_process_comparison_real_data" time="0.250" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_pipeline_orchestrator_initialization" time="0.010" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_basic" time="0.013" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_multiple_clusters" time="0.053" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_empty_sentences" time="0.019" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_single_sentence" time="0.016" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_error_handling" time="0.011" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_standalone_deterministic" time="0.021" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_standalone_output_schema_compatibility" time="0.012" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_process_dataset_internal_method" time="0.010" /><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_integration_with_real_models" time="0.000"><skipped type="pytest.skip" message="Requires actual ML models to be loaded">/home/anton/git/backend-task-2025/text-analysis-service/tests/integration/test_standalone.py:327: Requires actual ML models to be loaded</skipped></testcase><testcase classname="tests.integration.test_standalone.TestStandalonePipelineIntegration" name="test_performance_large_dataset" time="0.000"><skipped type="pytest.skip" message="Performance testing not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/integration/test_standalone.py:332: Performance testing not implemented yet</skipped></testcase><testcase classname="tests.integration.test_standalone.TestStandaloneSchemaValidation" name="test_standalone_input_schema_validation" time="0.001" /><testcase classname="tests.integration.test_standalone.TestStandaloneSchemaValidation" name="test_standalone_output_schema_validation" time="0.031" /><testcase classname="tests.integration.test_standalone.TestStandaloneSchemaValidation" name="test_schema_examples" time="0.001" /><testcase classname="tests.integration.test_standalone.TestStandaloneSchemaValidation" name="test_end_to_end_with_fixture" time="0.000" /><testcase classname="tests.integration.test_standalone.TestStandaloneSchemaValidation" name="test_output_format_matches_schema" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_title_generation_deterministic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_title_generation_deterministic_with_different_order" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_diversity_calculation_deterministic" time="0.002" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_diversity_calculation_deterministic_with_identical_embeddings" time="0.001" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_pattern_identification_deterministic" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_summary_generation_deterministic" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_overall_summary_generation_deterministic" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_cluster_insights_deterministic" time="0.002" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_representative_sentences_deterministic" time="0.003" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_deterministic_across_multiple_instances" time="0.001" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_deterministic_with_random_embeddings" time="0.004" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_edge_case_deterministic_empty_sentences" time="0.000" /><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_deterministic_with_real_ml_models" time="0.000"><skipped type="pytest.skip" message="Production-specific deterministic behavior not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_deterministic.py:267: Production-specific deterministic behavior not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_deterministic.TestDeterministicBehavior" name="test_deterministic_under_concurrency" time="0.000"><skipped type="pytest.skip" message="Concurrency deterministic testing not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_deterministic.py:272: Concurrency deterministic testing not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_single_sentence" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_two_sentences_similar" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_two_sentences_dissimilar" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_multiple_sentences" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_clipped_range" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_deterministic" time="0.002" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_empty_embeddings" time="0.000" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_identical_embeddings" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_normalized_embeddings" time="0.001" /><testcase classname="tests.unit.insights.test_insights_diversity.TestDiversityCalculation" name="test_diversity_with_mock_cosine" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestInsightGeneratorInitialization" name="test_default_initialization" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestInsightGeneratorInitialization" name="test_custom_parameters" time="0.000" /><testcase classname="tests.unit.insights.test_insights_init.TestInsightGeneratorInitialization" name="test_insight_templates_structure" time="0.000" /><testcase classname="tests.unit.insights.test_insights_init.TestKeyTermExtraction" name="test_extract_key_terms_basic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestKeyTermExtraction" name="test_extract_key_terms_no_repeats" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestKeyTermExtraction" name="test_extract_key_terms_common_words_filtered" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestKeyTermExtraction" name="test_extract_key_terms_max_terms" time="0.001" /><testcase classname="tests.unit.insights.test_insights_init.TestConvenienceFunctions" name="test_get_insight_generator_default" time="0.000" /><testcase classname="tests.unit.insights.test_insights_init.TestConvenienceFunctions" name="test_get_insight_generator_custom" time="0.000" /><testcase classname="tests.unit.insights.test_insights_init.TestConvenienceFunctions" name="test_get_insight_generator_singleton_behavior" time="0.001" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_basic" time="0.002" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_empty_sentences" time="0.001" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_single_sentence" time="0.001" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_title_generation" time="0.002" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_representative_sentences" time="0.002" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_diversity_calculation" time="0.002" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_pattern_identification" time="0.002" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_with_missing_sentiment_info" time="0.001" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_deterministic" time="0.003" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_generate_cluster_insights_edge_cases" time="0.003" /><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_integration_with_real_preprocessor" time="0.000"><skipped type="pytest.skip" message="Integration with actual preprocessor not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_integration.py:333: Integration with actual preprocessor not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_integration.TestClusterInsightsIntegration" name="test_performance_large_cluster" time="0.000"><skipped type="pytest.skip" message="Performance testing not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_integration.py:338: Performance testing not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_empty" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_single_sentence" time="0.001" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_common_starters" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_frequent_bigrams" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_multiple_patterns" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_case_insensitive" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_minimum_frequency" time="0.000" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_special_characters" time="0.001"><skipped type="pytest.xfail" message="Dash is not a sentence starter; test expectation may be incorrect" /></testcase><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_short_words_filtered" time="0.001" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_deterministic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_patterns.TestPatternIdentification" name="test_identify_patterns_max_patterns" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_performance_small_cluster" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_performance_large_cluster" time="0.003" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_memory_usage_large_cluster" time="0.066" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_title_length_constraints" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_title_length_constraints_with_key_terms" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_min_sentence_length_filtering" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_empty_patterns_edge_cases" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_diversity_edge_cases" time="0.002" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_summary_edge_cases" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_overall_summary_edge_cases" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_error_handling_in_cluster_insights" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_configuration_parameters" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_unicode_handling" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_concurrent_usage" time="0.001" /><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_metrics_and_monitoring" time="0.000"><skipped type="pytest.skip" message="Production monitoring not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_production.py:268: Production monitoring not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_logging_integration" time="0.000"><skipped type="pytest.skip" message="Logging integration not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_production.py:273: Logging integration not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_configuration_validation" time="0.000"><skipped type="pytest.skip" message="Configuration validation not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_production.py:278: Configuration validation not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_production.TestProductionReadiness" name="test_integration_with_real_ml_pipeline" time="0.002"><skipped type="pytest.skip" message="Integration with actual ML models not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_production.py:283: Integration with actual ML models not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_select_representative_sentences_basic" time="0.002" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_select_representative_sentences_large_cluster" time="0.001" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_select_representative_sentences_custom_count" time="0.001" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_select_representative_sentences_single_sentence" time="0.001" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_select_representative_sentences_empty" time="0.004" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_representative_sentences_deterministic" time="0.003" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_representative_sentences_closest_to_centroid" time="0.003" /><testcase classname="tests.unit.insights.test_insights_representative.TestRepresentativeSentenceSelection" name="test_representative_sentences_with_duplicate_embeddings" time="0.005" /><testcase classname="tests.unit.insights.test_insights_sophisticated.TestSophisticatedInsights" name="test_domain_pattern_detection" time="0.006" /><testcase classname="tests.unit.insights.test_insights_sophisticated.TestSophisticatedInsights" name="test_nuanced_sentiment_mixed" time="0.007" /><testcase classname="tests.unit.insights.test_insights_sophisticated.TestSophisticatedInsights" name="test_cluster_size_insights_large" time="0.003" /><testcase classname="tests.unit.insights.test_insights_sophisticated.TestSophisticatedInsights" name="test_cluster_size_insights_niche" time="0.002" /><testcase classname="tests.unit.insights.test_insights_sophisticated.TestSophisticatedInsights" name="test_domain_identification_logic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_single_positive" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_single_negative" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_single_neutral" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_few_positive" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_few_negative" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_multiple_positive" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_strong_cluster" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_summary_edge_cases" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_overall_summary_empty" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_overall_summary_single_cluster" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_overall_summary_multiple_clusters" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_overall_summary_tie_break" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_generate_overall_summary_mixed_sentiment" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_summary_deterministic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_overall_summary_deterministic" time="0.001" /><testcase classname="tests.unit.insights.test_insights_summary.TestSummaryGeneration" name="test_custom_summary_templates" time="0.000"><skipped type="pytest.skip" message="Production-specific summary logic not implemented yet">/home/anton/git/backend-task-2025/text-analysis-service/tests/unit/insights/test_insights_summary.py:231: Production-specific summary logic not implemented yet</skipped></testcase><testcase classname="tests.unit.insights.test_insights_title.TestClusterTitleGeneration" name="test_title_from_key_terms" time="0.001" /><testcase classname="tests.unit.insights.test_insights_title.TestClusterTitleGeneration" name="test_title_truncation" time="0.001" /><testcase classname="tests.unit.insights.test_insights_title.TestClusterTitleGeneration" name="test_title_fallback_to_first_sentence" time="0.001" /><testcase classname="tests.unit.insights.test_insights_title.TestClusterTitleGeneration" name="test_title_fallback_truncation" time="0.001" /><testcase classname="tests.unit.insights.test_insights_title.TestClusterTitleGeneration" name="test_empty_cluster_title" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_init_default" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_init_custom" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_empty_embeddings" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_single_embedding" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_two_similar_embeddings" time="0.003" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_two_dissimilar_embeddings" time="0.003" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_min_samples_enforcement" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_invalid_embeddings_shape" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_get_cluster_stats_empty" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_get_cluster_stats_all_noise" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_get_cluster_stats_with_clusters" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_valid" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_empty" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_1d" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_with_nan" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_with_inf" time="0.004" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_unusual_dimension" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_validate_embeddings_3d" time="0.001" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_with_mock_dbscan" time="0.002" /><testcase classname="tests.unit.test_clustering.TestClusterAnalyzer" name="test_cluster_dbscan_exception" time="0.001" /><testcase classname="tests.unit.test_clustering.TestSingletonAndConvenience" name="test_get_cluster_analyzer_singleton" time="0.000" /><testcase classname="tests.unit.test_clustering.TestSingletonAndConvenience" name="test_cluster_embeddings_convenience" time="0.001" /><testcase classname="tests.unit.test_clustering.TestEdgeCases" name="test_cluster_very_large_embeddings" time="0.003" /><testcase classname="tests.unit.test_clustering.TestEdgeCases" name="test_cluster_identical_embeddings_all_cluster" time="0.003" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_environment_variable_set" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_init_default" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_init_custom" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_lazy_loading" time="0.002" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_embed_empty_list" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_embed_single_sentence" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_embed_multiple_sentences" time="0.002" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_caching_behavior" time="0.002" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_cache_mixed_sentences" time="0.003" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_cache_eviction" time="0.002" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_clear_cache" time="0.002" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_get_cache_stats" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_embed_uncached_returns_numpy" time="0.001" /><testcase classname="tests.unit.test_embedding.TestEmbeddingModel" name="test_error_handling_missing_dependency" time="0.001" /><testcase classname="tests.unit.test_embedding.TestSingletonAndConvenience" name="test_get_embedding_model_singleton" time="0.001" /><testcase classname="tests.unit.test_embedding.TestSingletonAndConvenience" name="test_embed_sentences_convenience" time="0.001" /><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_standalone_success" time="6.520"><failure message="assert 500 == 200">tests/unit/test_lambda_handler.py:87: in test_lambda_handler_standalone_success
+    assert response["statusCode"] == 200
+E   assert 500 == 200</failure></testcase><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_comparison_success" time="4.882"><failure message="assert 500 == 200">tests/unit/test_lambda_handler.py:135: in test_lambda_handler_comparison_success
+    assert response["statusCode"] == 200
+E   assert 500 == 200</failure></testcase><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_direct_invocation_standalone" time="4.663"><failure message="assert 500 == 200">tests/unit/test_lambda_handler.py:175: in test_lambda_handler_direct_invocation_standalone
+    assert response["statusCode"] == 200
+E   assert 500 == 200</failure></testcase><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_validation_error" time="4.321"><failure message="assert 500 == 400">tests/unit/test_lambda_handler.py:202: in test_lambda_handler_validation_error
+    assert response["statusCode"] == 400
+E   assert 500 == 400</failure></testcase><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_pipeline_exception" time="4.735"><failure message="AssertionError: assert 'AcceleratorError' == 'Exception'&#10;  &#10;  #x1B[0m#x1B[91m- Exception#x1B[39;49;00m#x1B[90m#x1B[39;49;00m&#10;  #x1B[92m+ AcceleratorError#x1B[39;49;00m#x1B[90m#x1B[39;49;00m">tests/unit/test_lambda_handler.py:226: in test_lambda_handler_pipeline_exception
+    assert body["error"]["type"] == "Exception"
+E   AssertionError: assert 'AcceleratorError' == 'Exception'
+E     
+E     #x1B[0m#x1B[91m- Exception#x1B[39;49;00m#x1B[90m#x1B[39;49;00m
+E     #x1B[92m+ AcceleratorError#x1B[39;49;00m#x1B[90m#x1B[39;49;00m</failure></testcase><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_malformed_json" time="0.002" /><testcase classname="tests.unit.test_lambda_handler.TestLambdaHandler" name="test_lambda_handler_empty_body" time="0.001" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_api_gateway_standalone" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_api_gateway_comparison" time="0.001" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_direct_invocation_standalone" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_direct_invocation_comparison" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_missing_required_field" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_malformed_json_body" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_empty_body" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestParseRequest" name="test_parse_request_invalid_sentence_structure" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatSuccessResponse" name="test_format_success_response_basic" time="0.001" /><testcase classname="tests.unit.test_lambda_handler.TestFormatSuccessResponse" name="test_format_success_response_with_unicode" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatSuccessResponse" name="test_format_success_response_empty_result" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatErrorResponse" name="test_format_error_response_value_error" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatErrorResponse" name="test_format_error_response_generic_exception" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatErrorResponse" name="test_format_error_response_custom_exception" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestFormatErrorResponse" name="test_format_error_response_with_empty_message" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestGenerateJobId" name="test_generate_job_id_format" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestGenerateJobId" name="test_generate_job_id_uniqueness" time="0.000" /><testcase classname="tests.unit.test_lambda_handler.TestGenerateJobId" name="test_generate_job_id_deterministic_with_mocked_random" time="0.001" /><testcase classname="tests.unit.test_lambda_handler.TestGenerateJobId" name="test_generate_job_id_with_mocked_time" time="0.002" /><testcase classname="tests.unit.test_orchestrator.TestPipelineOrchestrator" name="test_process_comparison_calls_process_dataset" time="0.003" /><testcase classname="tests.unit.test_orchestrator.TestPipelineOrchestrator" name="test_process_standalone_parallel_execution" time="0.005" /><testcase classname="tests.unit.test_sentiment.TestSentimentAnalyzerInitialization" name="test_default_initialization" time="0.007" /><testcase classname="tests.unit.test_sentiment.TestSentimentAnalyzerInitialization" name="test_custom_keywords" time="0.010" /><testcase classname="tests.unit.test_sentiment.TestSentimentAnalyzerInitialization" name="test_add_custom_keywords" time="0.009" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_positive_sentence" time="0.011" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_negative_sentence" time="0.010" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_neutral_sentence_no_keywords" time="0.007" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_mixed_sentence" time="0.010" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_confidence_calculation" time="0.007" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_case_insensitivity" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_empty_sentence" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestSingleSentenceAnalysis" name="test_very_long_sentence" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestBatchAnalysis" name="test_batch_analysis" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestBatchAnalysis" name="test_empty_batch" time="0.007" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_single_cluster_all_positive" time="0.009" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_multiple_clusters" time="0.009" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_cluster_with_noise" time="0.010" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_empty_cluster" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_cluster_with_all_neutral" time="0.009" /><testcase classname="tests.unit.test_sentiment.TestClusterSentimentAggregation" name="test_strength_calculation" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestEdgeCasesAndErrorHandling" name="test_nan_in_embeddings" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestEdgeCasesAndErrorHandling" name="test_embeddings_shape_mismatch" time="0.009" /><testcase classname="tests.unit.test_sentiment.TestEdgeCasesAndErrorHandling" name="test_all_noise_clusters" time="0.010" /><testcase classname="tests.unit.test_sentiment.TestDeterministicBehavior" name="test_deterministic_keyword_matching" time="0.014" /><testcase classname="tests.unit.test_sentiment.TestConvenienceFunctions" name="test_get_sentiment_analyzer_singleton" time="0.008" /><testcase classname="tests.unit.test_sentiment.TestConvenienceFunctions" name="test_analyze_sentiment_function" time="0.000" /><testcase classname="tests.unit.test_sentiment.TestImplementationDetails" name="test_method_name" time="0.011" /></testsuite></testsuites>

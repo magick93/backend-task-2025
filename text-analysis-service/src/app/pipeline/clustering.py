@@ -1,15 +1,12 @@
 """
 Clustering module for sentence embeddings.
 
-Implement placeholder clustering logic:
-- Use cosine similarity
-- Keep deterministic behavior (seeded)
-- Focus on clarity, not quality
+Uses density-based clustering (DBSCAN) to group similar sentences.
 """
 
 from typing import List, Tuple, Dict, Any, Optional
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.cluster import DBSCAN
 
 from ..utils.logging import setup_logger
 
@@ -18,34 +15,30 @@ logger = setup_logger(__name__)
 
 class ClusterAnalyzer:
     """
-    Clustering analyzer for sentence embeddings.
-    
-    Uses cosine similarity and simple deterministic clustering.
-    This is a placeholder implementation - focus is on clarity and
-    deterministic behavior rather than production-quality clustering.
+    Clustering analyzer for sentence embeddings using DBSCAN.
     """
     
     def __init__(
         self,
-        similarity_threshold: float = 0.7,
-        min_cluster_size: int = 2,
-        random_seed: int = 42
+        eps: float = 0.3,  # Corresponds to similarity threshold of ~0.7 with cosine distance
+        min_samples: int = 2,
+        metric: str = 'cosine'
     ):
         """
         Initialize the cluster analyzer.
         
         Args:
-            similarity_threshold: Minimum cosine similarity for clustering
-            min_cluster_size: Minimum sentences per cluster (smaller become noise)
-            random_seed: Seed for deterministic behavior
+            eps: The maximum distance between two samples for one to be considered as in the neighborhood of the other.
+            min_samples: The number of samples (or total weight) in a neighborhood for a point to be considered as a core point.
+            metric: The metric to use when calculating distance between instances in a feature array.
         """
-        self.similarity_threshold = similarity_threshold
-        self.min_cluster_size = min_cluster_size
-        self.random_seed = random_seed
+        self.eps = eps
+        self.min_samples = min_samples
+        self.metric = metric
         
         logger.debug(
-            f"ClusterAnalyzer initialized: threshold={similarity_threshold}, "
-            f"min_size={min_cluster_size}, seed={random_seed}"
+            f"ClusterAnalyzer initialized: eps={eps}, "
+            f"min_samples={min_samples}, metric={metric}"
         )
     
     def cluster(self, embeddings: np.ndarray) -> np.ndarray:
@@ -67,105 +60,36 @@ class ClusterAnalyzer:
         n_sentences = embeddings.shape[0]
         logger.debug(f"Clustering {n_sentences} sentences")
         
-        # Placeholder implementation: simple deterministic clustering
-        # TODO: Replace with actual clustering algorithm (DBSCAN, HDBSCAN, etc.)
-        
-        if n_sentences < self.min_cluster_size:
-            # Not enough sentences to form clusters
+        if n_sentences < self.min_samples:
+            # Not enough sentences to form a cluster
             logger.debug("Not enough sentences for clustering, all marked as noise")
             return np.full(n_sentences, -1)
         
-        # Compute cosine similarity matrix
-        similarity_matrix = cosine_similarity(embeddings)
-        
-        # Simple clustering based on similarity threshold
-        labels = self._simple_threshold_clustering(similarity_matrix)
-        
-        # Enforce minimum cluster size
-        labels = self._enforce_min_cluster_size(labels)
-        
-        # Log clustering results
-        unique_labels = np.unique(labels)
-        cluster_count = len(unique_labels) - (1 if -1 in unique_labels else 0)
-        noise_count = np.sum(labels == -1)
-        
-        logger.info(
-            f"Clustering complete: {cluster_count} clusters, "
-            f"{noise_count} noise points"
-        )
-        
-        return labels
-    
-    def _simple_threshold_clustering(
-        self, 
-        similarity_matrix: np.ndarray
-    ) -> np.ndarray:
-        """
-        Simple threshold-based clustering.
-        
-        Args:
-            similarity_matrix: Pairwise cosine similarity matrix
+        # Run DBSCAN
+        try:
+            dbscan = DBSCAN(
+                eps=self.eps,
+                min_samples=self.min_samples,
+                metric=self.metric
+            )
+            labels = dbscan.fit_predict(embeddings)
             
-        Returns:
-            Array of cluster labels
-        """
-        n = similarity_matrix.shape[0]
-        labels = np.full(n, -1)  # Start with all as noise
-        current_label = 0
-        
-        # Create visited array
-        visited = np.zeros(n, dtype=bool)
-        
-        # Set random seed for deterministic behavior
-        np.random.seed(self.random_seed)
-        
-        # Process sentences in random but deterministic order
-        order = np.random.permutation(n)
-        
-        for i in order:
-            if visited[i]:
-                continue
-                
-            # Find similar sentences
-            similar_indices = np.where(
-                similarity_matrix[i] >= self.similarity_threshold
-            )[0]
+            # Log clustering results
+            unique_labels = np.unique(labels)
+            cluster_count = len(unique_labels) - (1 if -1 in unique_labels else 0)
+            noise_count = np.sum(labels == -1)
             
-            if len(similar_indices) >= self.min_cluster_size:
-                # Found a cluster
-                labels[similar_indices] = current_label
-                visited[similar_indices] = True
-                current_label += 1
-            else:
-                # Mark as noise
-                labels[i] = -1
-                visited[i] = True
-        
-        return labels
-    
-    def _enforce_min_cluster_size(self, labels: np.ndarray) -> np.ndarray:
-        """
-        Enforce minimum cluster size by converting small clusters to noise.
-        
-        Args:
-            labels: Array of cluster labels
+            logger.info(
+                f"Clustering complete: {cluster_count} clusters, "
+                f"{noise_count} noise points"
+            )
             
-        Returns:
-            Updated labels with small clusters converted to noise
-        """
-        unique_labels = np.unique(labels)
-        
-        for label in unique_labels:
-            if label == -1:
-                continue
-                
-            cluster_size = np.sum(labels == label)
-            if cluster_size < self.min_cluster_size:
-                # Convert small cluster to noise
-                labels[labels == label] = -1
-                logger.debug(f"Converted cluster {label} to noise (size: {cluster_size})")
-        
-        return labels
+            return labels
+            
+        except Exception as e:
+            logger.error(f"Clustering failed: {str(e)}")
+            # Fallback to noise
+            return np.full(n_sentences, -1)
     
     def get_cluster_stats(self, labels: np.ndarray) -> Dict[str, Any]:
         """

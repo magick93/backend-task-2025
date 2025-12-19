@@ -73,6 +73,7 @@ RUN_ALL=true
 # Script options
 VERBOSE=false
 CLEANUP=true
+PARAMETER_OVERRIDES_FLAG=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}" && pwd)"
 
@@ -187,6 +188,33 @@ setup_trap() {
     log_debug "Signal traps set up for cleanup"
 }
 
+# Configure environment variables and overrides
+configure_environment() {
+    log_info "Configuring environment..."
+    
+    local overrides=""
+    
+    # Source .env file if it exists
+    if [ -f .env ]; then
+        log_info "Sourcing .env file..."
+        set -a
+        source .env
+        set +a
+    fi
+    
+    # Check for Honeycomb API Key
+    if [ -n "${HONEYCOMB_API_KEY:-}" ]; then
+        overrides="HoneycombApiKey=$HONEYCOMB_API_KEY"
+    elif [ -n "${HoneycombApiKey:-}" ]; then
+        overrides="HoneycombApiKey=$HoneycombApiKey"
+    fi
+    
+    if [ -n "$overrides" ]; then
+        log_info "Applying parameter overrides: $overrides"
+        PARAMETER_OVERRIDES_FLAG="--parameter-overrides $overrides"
+    fi
+}
+
 # =============================================================================
 # SAM Functions
 # =============================================================================
@@ -261,7 +289,8 @@ start_sam_api() {
     sam local start-api \
         --port "$API_PORT" \
         --template .aws-sam/build/template.yaml \
-        --env-vars .env \
+        --env-vars local-env-vars.json \
+        $PARAMETER_OVERRIDES_FLAG \
         --warm-containers EAGER \
         --debug 2>&1 | tee "$PROJECT_ROOT/sam_api.log" &
     
@@ -298,7 +327,8 @@ start_sam_lambda() {
     sam local start-lambda \
         --port "$LAMBDA_PORT" \
         --template .aws-sam/build/template.yaml \
-        --env-vars .env \
+        --env-vars local-env-vars.json \
+        $PARAMETER_OVERRIDES_FLAG \
         --debug 2>&1 | tee "$PROJECT_ROOT/sam_lambda.log" &
     
     SAM_LAMBDA_PID=$!
@@ -565,6 +595,9 @@ main() {
     
     # Parse command line arguments
     parse_arguments "$@"
+    
+    # Configure environment
+    configure_environment
     
     # Setup cleanup trap
     setup_trap

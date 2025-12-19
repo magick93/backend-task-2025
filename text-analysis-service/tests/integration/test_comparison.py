@@ -43,7 +43,8 @@ class TestComparisonPipelineIntegration:
                                         'sentence_count': 2,
                                         'diversity_score': 0.1,
                                         'patterns': [],
-                                        'summary': 'Test summary'
+                                        'summary': 'Test summary',
+                                        'sentence_ids': ['b1', 'b2'] # Add IDs for test
                                     }
                                     mock_summary.return_value = {
                                         'total_clusters': 1,
@@ -58,17 +59,31 @@ class TestComparisonPipelineIntegration:
                                         },
                                         'average_cluster_size': 2.0
                                     }
+                                    
+                                    # Create enriched mock return for comparison analyzer
                                     mock_compare.return_value = {
-                                        'similarities': [],
+                                        'similarities': [{
+                                            'baseline_cluster': {
+                                                'id': 0, 'title': 'Base', 'size': 2, 'sentiment': 'positive',
+                                                'sentence_ids': ['b1', 'b2']
+                                            },
+                                            'comparison_cluster': {
+                                                'id': 0, 'title': 'Comp', 'size': 2, 'sentiment': 'positive',
+                                                'sentence_ids': ['c1', 'c2']
+                                            },
+                                            'similarity_score': 0.9,
+                                            'key_similarities': ['Sim 1'],
+                                            'key_differences': ['Diff 1']
+                                        }],
                                         'differences': {
                                             'baseline_unique': [],
                                             'comparison_unique': []
                                         },
-                                        'similarity_score': 0.5,
-                                        'summary': 'Datasets are moderately similar',
+                                        'similarity_score': 0.9,
+                                        'summary': 'Very similar',
                                         'baseline_cluster_count': 1,
                                         'comparison_cluster_count': 1,
-                                        'similarity_pair_count': 0
+                                        'similarity_pair_count': 1
                                     }
                                     
                                     # Process comparative analysis
@@ -78,52 +93,72 @@ class TestComparisonPipelineIntegration:
                                         job_id="test-job-comparison-123"
                                     )
                                     
-                                    # Verify structure (new format)
-                                    assert 'baseline' in result
-                                    assert 'comparison' in result
-                                    assert 'comparison_analysis' in result
-                                    assert 'processing_metadata' in result
-                                    assert 'clusters' in result['baseline']
-                                    assert 'summary' in result['baseline']
-                                    assert 'clusters' in result['comparison']
-                                    assert 'summary' in result['comparison']
-                                    assert 'similarities' in result['comparison_analysis']
-                                    assert 'differences' in result['comparison_analysis']
-                                    assert 'similarity_score' in result['comparison_analysis']
+                                    # Verify structure (updated format)
+                                    assert 'clusters' in result
+                                    assert 'metadata' in result
+                                    
+                                    # Check cluster structure
+                                    assert isinstance(result['clusters'], list)
+                                    assert len(result['clusters']) == 1
+                                    cluster = result['clusters'][0]
+                                    assert 'title' in cluster
+                                    assert 'sentiment' in cluster
+                                    assert 'baselineSentences' in cluster
+                                    assert 'comparisonSentences' in cluster
+                                    assert 'keySimilarities' in cluster
+                                    assert 'keyDifferences' in cluster
+                                    
+                                    # Check values
+                                    assert cluster['baselineSentences'] == ['b1', 'b2']
+                                    assert cluster['comparisonSentences'] == ['c1', 'c2']
+                                    assert cluster['keySimilarities'] == ['Sim 1']
     
     def test_process_comparison_empty_datasets(self):
         """Test comparative processing with empty datasets."""
         orchestrator = PipelineOrchestrator()
         
-        # Test with empty baseline
-        result = orchestrator.process_comparison(
-            baseline=[],
-            comparison=[{"sentence": "comparison", "id": "c1"}],
-            job_id="test-job-empty-baseline"
-        )
-        
-        assert 'baseline' in result
-        assert 'comparison' in result
-        assert result['processing_metadata']['baseline_sentence_count'] == 0
-        
-        # Test with empty comparison
-        result = orchestrator.process_comparison(
-            baseline=[{"sentence": "baseline", "id": "b1"}],
-            comparison=[],
-            job_id="test-job-empty-comparison"
-        )
-        
-        assert result['processing_metadata']['comparison_sentence_count'] == 0
-        
-        # Test with both empty
-        result = orchestrator.process_comparison(
-            baseline=[],
-            comparison=[],
-            job_id="test-job-both-empty"
-        )
-        
-        assert result['processing_metadata']['baseline_sentence_count'] == 0
-        assert result['processing_metadata']['comparison_sentence_count'] == 0
+        # Mock components to avoid actual model execution
+        with patch.object(orchestrator.embedding_model, 'embed') as mock_embed:
+            with patch.object(orchestrator.cluster_analyzer, 'cluster') as mock_cluster:
+                with patch.object(orchestrator.comparison_analyzer, 'compare_clusters') as mock_compare:
+                    
+                    # Setup mocks
+                    mock_embed.return_value = np.array([])
+                    mock_cluster.return_value = np.array([])
+                    mock_compare.return_value = {
+                        'similarities': [],
+                        'differences': {'baseline_unique': [], 'comparison_unique': []},
+                        'similarity_score': 0.0
+                    }
+                    
+                    # Test with empty baseline
+                    result = orchestrator.process_comparison(
+                        baseline=[],
+                        comparison=[{"sentence": "comparison", "id": "c1"}],
+                        job_id="test-job-empty-baseline"
+                    )
+                    
+                    assert 'clusters' in result
+                    assert result['metadata']['totalBaselineSentences'] == 0
+                    
+                    # Test with empty comparison
+                    result = orchestrator.process_comparison(
+                        baseline=[{"sentence": "baseline", "id": "b1"}],
+                        comparison=[],
+                        job_id="test-job-empty-comparison"
+                    )
+                    
+                    assert result['metadata']['totalComparisonSentences'] == 0
+                    
+                    # Test with both empty
+                    result = orchestrator.process_comparison(
+                        baseline=[],
+                        comparison=[],
+                        job_id="test-job-both-empty"
+                    )
+                    
+                    assert result['metadata']['totalBaselineSentences'] == 0
+                    assert result['metadata']['totalComparisonSentences'] == 0
     
     def test_process_comparison_error_handling(self):
         """Test error handling in comparative processing."""
@@ -168,7 +203,8 @@ class TestComparisonPipelineIntegration:
                                         'sentence_count': 1,
                                         'diversity_score': 0.1,
                                         'patterns': [],
-                                        'summary': 'Test summary'
+                                        'summary': 'Test summary',
+                                        'sentence_ids': ['st1']
                                     }
                                     mock_summary.return_value = {
                                         'total_clusters': 1,
@@ -186,11 +222,17 @@ class TestComparisonPipelineIntegration:
                                     mock_compare.return_value = {
                                         'similarities': [],
                                         'differences': {
-                                            'baseline_unique': [],
-                                            'comparison_unique': []
+                                            'baseline_unique': [{
+                                                'id': 0, 'title': 'Unique Base', 'size': 1, 'sentiment': 'positive',
+                                                'sentence_ids': ['st1'], 'insights': ['Insight']
+                                            }],
+                                            'comparison_unique': [{
+                                                'id': 0, 'title': 'Unique Comp', 'size': 1, 'sentiment': 'positive',
+                                                'sentence_ids': ['st2'], 'insights': ['Insight']
+                                            }]
                                         },
-                                        'similarity_score': 0.5,
-                                        'summary': 'Datasets are moderately similar',
+                                        'similarity_score': 0.0,
+                                        'summary': 'Different',
                                         'baseline_cluster_count': 1,
                                         'comparison_cluster_count': 1,
                                         'similarity_pair_count': 0
@@ -205,17 +247,16 @@ class TestComparisonPipelineIntegration:
                                     
                                     # Convert to ComparisonOutput schema
                                     assert isinstance(result, dict)
-                                    assert 'baseline' in result
-                                    assert 'comparison' in result
-                                    assert 'comparison_analysis' in result
-                                    assert 'processing_metadata' in result
-                                    assert 'clusters' in result['baseline']
-                                    assert 'summary' in result['baseline']
-                                    assert 'clusters' in result['comparison']
-                                    assert 'summary' in result['comparison']
-                                    assert 'similarities' in result['comparison_analysis']
-                                    assert 'differences' in result['comparison_analysis']
-                                    assert 'similarity_score' in result['comparison_analysis']
+                                    assert 'clusters' in result
+                                    assert 'metadata' in result
+                                    assert len(result['clusters']) == 2
+                                    
+                                    # Verify schema compatibility for first cluster
+                                    c1 = result['clusters'][0]
+                                    assert 'baselineSentences' in c1
+                                    assert 'comparisonSentences' in c1
+                                    assert c1['baselineSentences'] == ['st1']
+                                    assert c1['comparisonSentences'] == []
     
     def test_comparison_analyzer_integration(self):
         """Test the comparison analyzer directly with mock clusters."""
@@ -231,7 +272,9 @@ class TestComparisonPipelineIntegration:
                 'sentiment': 'negative',
                 'sentence_count': 5,
                 'key_terms': ['interface', 'slow', 'buggy'],
-                'representative_sentences': ['The interface is too slow']
+                'representative_sentences': ['The interface is too slow'],
+                'sentence_ids': ['b1'],
+                'insights': []
             }
         ]
         
@@ -242,7 +285,9 @@ class TestComparisonPipelineIntegration:
                 'sentiment': 'negative',
                 'sentence_count': 4,
                 'key_terms': ['interface', 'problems', 'slow'],
-                'representative_sentences': ['UI has problems']
+                'representative_sentences': ['UI has problems'],
+                'sentence_ids': ['c1'],
+                'insights': []
             }
         ]
         
@@ -257,6 +302,12 @@ class TestComparisonPipelineIntegration:
         assert 'differences' in result
         assert 'similarity_score' in result
         assert 'summary' in result
+        
+        # Check for enriched fields
+        if result['similarities']:
+            sim = result['similarities'][0]
+            assert 'key_similarities' in sim
+            assert 'key_differences' in sim
         
         # Similarity score should be between 0 and 1
         assert 0.0 <= result['similarity_score'] <= 1.0

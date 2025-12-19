@@ -18,12 +18,26 @@ Globals:
   Api:
     TracingEnabled: true
 
+Parameters:
+  HoneycombApiKey:
+    Type: String
+    Default: replace-me
+    Description: Honeycomb API Key for OpenTelemetry
+  OtelServiceName:
+    Type: String
+    Default: text-analysis-service
+    Description: Service name for OpenTelemetry
+  OtelExporterEndpoint:
+    Type: String
+    Default: https://api.honeycomb.io
+    Description: Exporter endpoint for OpenTelemetry
+
 Resources:
   TextAnalysisFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: functions/text-analysis/
-      Handler: app.lambda_handler
+      CodeUri: .
+      Handler: functions/text_analysis/handler.lambda_handler
       Events:
         ApiEvent:
           Type: Api
@@ -33,6 +47,9 @@ Resources:
       Environment:
         Variables:
           LOG_LEVEL: INFO
+          OTEL_SERVICE_NAME: !Ref OtelServiceName
+          OTEL_EXPORTER_OTLP_ENDPOINT: !Ref OtelExporterEndpoint
+          OTEL_EXPORTER_OTLP_HEADERS: !Sub "x-honeycomb-team=${HoneycombApiKey}"
       Policies:
         - AWSLambdaBasicExecutionRole
 

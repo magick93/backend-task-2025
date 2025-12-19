@@ -1,0 +1,5 @@
+{
+  "OtelServiceName": "text-analysis-service",
+  "OtelExporterEndpoint": "https://api.honeycomb.io",
+  "HoneycombApiKey": "replace-me"
+}

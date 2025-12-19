@@ -1,6 +1,0 @@
-numpy>=2.3.5
-scikit-learn>=1.8.0
-pydantic>=2.12.5
-# transformers>=4.30.0  # Commented out for now to avoid large downloads
-# vaderSentiment>=3.3.2  # Commented out for now
-# torch>=2.0.0  # Commented out for now

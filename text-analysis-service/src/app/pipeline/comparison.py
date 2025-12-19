@@ -208,18 +208,28 @@ class ComparisonAnalyzer:
                             'title': b_cluster.get('title', 'Unknown'),
                             'size': b_cluster.get('sentence_count', 0),
                             'sentiment': b_cluster.get('sentiment', 'neutral'),
-                            'key_terms': b_cluster.get('key_terms', [])[:5]
+                            'key_terms': b_cluster.get('key_terms', [])[:5],
+                            'sentence_ids': b_cluster.get('sentence_ids', []),
+                            'insights': b_cluster.get('insights', [])
                         },
                         'comparison_cluster': {
                             'id': c_cluster.get('cluster_id'),
                             'title': c_cluster.get('title', 'Unknown'),
                             'size': c_cluster.get('sentence_count', 0),
                             'sentiment': c_cluster.get('sentiment', 'neutral'),
-                            'key_terms': c_cluster.get('key_terms', [])[:5]
+                            'key_terms': c_cluster.get('key_terms', [])[:5],
+                            'sentence_ids': c_cluster.get('sentence_ids', []),
+                            'insights': c_cluster.get('insights', [])
                         },
                         'similarity_score': similarity,
                         'similarity_type': self._determine_similarity_type(
                             b_cluster, c_cluster, similarity
+                        ),
+                        'key_similarities': self._generate_key_similarities(
+                            b_cluster, c_cluster, similarity
+                        ),
+                        'key_differences': self._generate_key_differences(
+                            b_cluster, c_cluster
                         )
                     })
         
@@ -236,12 +246,6 @@ class ComparisonAnalyzer:
     ) -> float:
         """
         Calculate similarity score between two clusters.
-        
-        Uses multiple heuristics:
-        1. Title similarity (if available)
-        2. Key term overlap
-        3. Sentiment match
-        4. Size ratio
         
         Args:
             cluster1: First cluster
@@ -305,17 +309,7 @@ class ComparisonAnalyzer:
         cluster2: Dict[str, Any],
         similarity_score: float
     ) -> str:
-        """
-        Determine the type of similarity between clusters.
-        
-        Args:
-            cluster1: First cluster
-            cluster2: Second cluster
-            similarity_score: Calculated similarity score
-            
-        Returns:
-            Similarity type description
-        """
+        """Determine similarity type description."""
         if similarity_score >= 0.9:
             return "Very similar topics"
         elif similarity_score >= 0.8:
@@ -326,6 +320,69 @@ class ComparisonAnalyzer:
             return "Partially related topics"
         else:
             return "Weakly related topics"
+
+    def _generate_key_similarities(
+        self,
+        cluster1: Dict[str, Any],
+        cluster2: Dict[str, Any],
+        similarity_score: float
+    ) -> List[str]:
+        """Generate key similarities list."""
+        similarities = []
+        
+        # Content similarity
+        if similarity_score >= 0.8:
+            similarities.append("Both groups discuss **almost identical themes**.")
+        elif similarity_score >= 0.6:
+            similarities.append("Both groups discuss **related themes** with some overlap.")
+            
+        # Sentiment similarity
+        s1 = cluster1.get('sentiment', 'neutral')
+        s2 = cluster2.get('sentiment', 'neutral')
+        if s1 == s2:
+            similarities.append(f"Both groups express **{s1} sentiment** regarding this topic.")
+            
+        # Term overlap
+        terms1 = set(cluster1.get('key_terms', []))
+        terms2 = set(cluster2.get('key_terms', []))
+        overlap = list(terms1.intersection(terms2))[:3]
+        if overlap:
+            similarities.append(f"Common key terms: **{', '.join(overlap)}**.")
+            
+        return similarities
+
+    def _generate_key_differences(
+        self,
+        cluster1: Dict[str, Any],
+        cluster2: Dict[str, Any]
+    ) -> List[str]:
+        """Generate key differences list."""
+        differences = []
+        
+        # Sentiment difference
+        s1 = cluster1.get('sentiment', 'neutral')
+        s2 = cluster2.get('sentiment', 'neutral')
+        if s1 != s2:
+            differences.append(f"Baseline expresses **{s1} sentiment**, while comparison expresses **{s2} sentiment**.")
+            
+        # Size difference
+        size1 = cluster1.get('sentence_count', 0)
+        size2 = cluster2.get('sentence_count', 0)
+        if abs(size1 - size2) > max(size1, size2) * 0.5:
+             differences.append("One group has significantly **more mentions** of this topic than the other.")
+             
+        # Unique terms
+        terms1 = set(cluster1.get('key_terms', []))
+        terms2 = set(cluster2.get('key_terms', []))
+        unique1 = list(terms1 - terms2)[:2]
+        unique2 = list(terms2 - terms1)[:2]
+        
+        if unique1:
+            differences.append(f"Baseline uniquely mentions: **{', '.join(unique1)}**.")
+        if unique2:
+            differences.append(f"Comparison uniquely mentions: **{', '.join(unique2)}**.")
+            
+        return differences
     
     def _find_unique_clusters(
         self,
@@ -380,7 +437,9 @@ class ComparisonAnalyzer:
                     cluster.get('representative_sentences', [])[0]
                     if cluster.get('representative_sentences')
                     else ''
-                )
+                ),
+                'sentence_ids': cluster.get('sentence_ids', []),
+                'insights': cluster.get('insights', [])
             }
             for cluster in baseline_unique
         ]
@@ -396,7 +455,9 @@ class ComparisonAnalyzer:
                     cluster.get('representative_sentences', [])[0]
                     if cluster.get('representative_sentences')
                     else ''
-                )
+                ),
+                'sentence_ids': cluster.get('sentence_ids', []),
+                'insights': cluster.get('insights', [])
             }
             for cluster in comparison_unique
         ]
@@ -417,17 +478,7 @@ class ComparisonAnalyzer:
         comparison_clusters: List[Dict[str, Any]],
         similarities: List[Dict[str, Any]]
     ) -> float:
-        """
-        Calculate overall similarity score between datasets.
-        
-        Args:
-            baseline_clusters: Filtered baseline clusters
-            comparison_clusters: Filtered comparison clusters
-            similarities: List of similar cluster pairs
-            
-        Returns:
-            Overall similarity score (0-1)
-        """
+        """Calculate overall similarity score between datasets."""
         if not baseline_clusters or not comparison_clusters:
             return 0.0
         
@@ -466,19 +517,7 @@ class ComparisonAnalyzer:
         differences: Dict[str, List[Dict[str, Any]]],
         similarity_score: float
     ) -> str:
-        """
-        Generate a text summary of the comparison.
-        
-        Args:
-            baseline_clusters: Filtered baseline clusters
-            comparison_clusters: Filtered comparison clusters
-            similarities: List of similar cluster pairs
-            differences: Dictionary of unique clusters
-            similarity_score: Overall similarity score
-            
-        Returns:
-            Text summary
-        """
+        """Generate a text summary of the comparison."""
         baseline_count = len(baseline_clusters)
         comparison_count = len(comparison_clusters)
         similarity_count = len(similarities)
@@ -532,15 +571,7 @@ class ComparisonAnalyzer:
         return summary
     
     def get_similarity_description(self, similarity_score: float) -> str:
-        """
-        Get a human-readable description of similarity score.
-        
-        Args:
-            similarity_score: Overall similarity score (0-1)
-            
-        Returns:
-            Description of similarity level
-        """
+        """Get a human-readable description of similarity score."""
         if similarity_score >= 0.9:
             return "Very high similarity - datasets are nearly identical in topics"
         elif similarity_score >= 0.8:
@@ -560,12 +591,7 @@ _default_comparison_analyzer: Optional[ComparisonAnalyzer] = None
 
 
 def get_comparison_analyzer() -> ComparisonAnalyzer:
-    """
-    Get or create the default comparison analyzer instance.
-    
-    Returns:
-        Shared ComparisonAnalyzer instance
-    """
+    """Get or create the default comparison analyzer instance."""
     global _default_comparison_analyzer
     if _default_comparison_analyzer is None:
         _default_comparison_analyzer = ComparisonAnalyzer()

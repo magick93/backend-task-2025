@@ -56,6 +56,16 @@ class InsightGenerator:
                 "{count} respondents mentioned this topic.",
                 "A group of {count} similar feedback points."
             ],
+            'size_large': [
+                "A major theme with {count} comments ({percent:.1%} of total).",
+                "Significant topic discussed by {count} respondents.",
+                "High volume of feedback ({count} items) centers on this issue."
+            ],
+            'size_small': [
+                "A niche topic with {count} specific comments.",
+                "Small cluster of {count} related points.",
+                "Isolated feedback group ({count} items)."
+            ],
             'sentiment_positive': [
                 "Overall positive sentiment ({confidence:.0%} confidence).",
                 "Respondents expressed satisfaction with this topic ({confidence:.0%} confidence).",
@@ -71,14 +81,35 @@ class InsightGenerator:
                 "Mixed or neutral opinions on this topic ({confidence:.0%} confidence).",
                 "No strong sentiment direction detected ({confidence:.0%} confidence)."
             ],
+            'sentiment_mixed': [
+                "Mixed sentiment with high variance (avg score: {score:.2f}).",
+                "Polarized opinions: both positive and negative feedback present.",
+                "Controversial topic with split sentiment."
+            ],
             'diversity': [
                 "Moderate diversity of opinions within the cluster.",
                 "Relatively homogeneous perspectives.",
                 "Varied expressions of similar ideas."
+            ],
+            'domain': [
+                "Feedback relates to {domain} aspects.",
+                "Discussions focus on {domain}.",
+                "Key theme: {domain}."
             ]
         }
+
+        # Domain patterns for heuristic classification
+        self.domain_patterns = {
+            'Pricing': ['price', 'cost', 'expensive', 'cheap', 'value', 'money', 'charge', 'paid', 'subscription', 'billing'],
+            'Quality': ['quality', 'durable', 'broken', 'sturdy', 'material', 'made', 'built', 'condition', 'defect'],
+            'Service': ['service', 'support', 'staff', 'team', 'helpful', 'rude', 'agent', 'waiting', 'response', 'contact'],
+            'Delivery': ['delivery', 'shipping', 'arrived', 'package', 'late', 'fast', 'courier', 'tracking', 'shipment'],
+            'UX/UI': ['interface', 'app', 'website', 'click', 'button', 'navigate', 'login', 'screen', 'design', 'user'],
+            'Features': ['feature', 'function', 'add', 'missing', 'option', 'capability', 'setting', 'customization'],
+            'Performance': ['slow', 'fast', 'crash', 'bug', 'error', 'loading', 'speed', 'stable', 'lag']
+        }
         
-        logger.debug("InsightGenerator initialized with template-based logic")
+        logger.debug("InsightGenerator initialized with sophisticated template-based logic")
     
     def generate_cluster_insights(
         self,
@@ -86,7 +117,8 @@ class InsightGenerator:
         sentences: List[str],
         embeddings: np.ndarray,
         sentiment_info: Dict[str, Any],
-        preprocessor: Any
+        preprocessor: Any,
+        total_dataset_size: Optional[int] = None
     ) -> Optional[Dict[str, Any]]:
         """
         Generate insights for a single cluster.
@@ -97,6 +129,7 @@ class InsightGenerator:
             embeddings: Sentence embeddings
             sentiment_info: Sentiment analysis results for the cluster
             preprocessor: TextPreprocessor instance
+            total_dataset_size: Total number of sentences in the dataset (for relative size calculation)
             
         Returns:
             Dictionary with cluster insights, or None if cluster is empty
@@ -123,12 +156,17 @@ class InsightGenerator:
             # Calculate sentence diversity
             diversity_score = self._calculate_diversity(embeddings)
             
+            # Identify domain
+            domain = self._identify_domain(sentences, key_terms)
+            
             # Generate insights
             insights = self._generate_insights(
                 sentences=sentences,
                 sentiment_info=sentiment_info,
                 diversity_score=diversity_score,
-                key_terms=key_terms
+                key_terms=key_terms,
+                total_dataset_size=total_dataset_size,
+                domain=domain
             )
             
             # Identify patterns
@@ -149,7 +187,8 @@ class InsightGenerator:
                 'sentence_count': len(sentences),
                 'diversity_score': diversity_score,
                 'patterns': patterns,
-                'summary': summary
+                'summary': summary,
+                'domain': domain
             }
             
         except Exception as e:
@@ -166,7 +205,8 @@ class InsightGenerator:
                 'insights': ["Error generating detailed insights"],
                 'sentence_count': len(sentences),
                 'diversity_score': 0.0,
-                'summary': f"Cluster with {len(sentences)} sentences"
+                'summary': f"Cluster with {len(sentences)} sentences",
+                'domain': None
             }
     
     def _extract_key_terms(
@@ -327,12 +367,42 @@ class InsightGenerator:
             logger.warning(f"Failed to calculate diversity: {str(e)}")
             return 0.5  # Default moderate diversity
     
+    def _identify_domain(self, sentences: List[str], key_terms: List[str]) -> Optional[str]:
+        """
+        Identify the domain of the cluster based on keywords.
+        
+        Args:
+            sentences: List of sentences
+            key_terms: List of key terms
+            
+        Returns:
+            Domain string if identified, else None
+        """
+        # Combine text to search
+        text_to_search = " ".join(sentences[:5] + key_terms).lower()
+        
+        domain_scores = Counter()
+        
+        for domain, patterns in self.domain_patterns.items():
+            for pattern in patterns:
+                if pattern in text_to_search:
+                    domain_scores[domain] += 1
+        
+        if domain_scores:
+            best_domain, count = domain_scores.most_common(1)[0]
+            if count >= 1: # At least one match
+                return best_domain
+        
+        return None
+
     def _generate_insights(
         self,
         sentences: List[str],
         sentiment_info: Dict[str, Any],
         diversity_score: float,
-        key_terms: List[str]
+        key_terms: List[str],
+        total_dataset_size: Optional[int] = None,
+        domain: Optional[str] = None
     ) -> List[str]:
         """
         Generate 2-3 bullet-point insights for the cluster.
@@ -342,32 +412,61 @@ class InsightGenerator:
             sentiment_info: Sentiment analysis results
             diversity_score: Diversity score
             key_terms: Key terms
+            total_dataset_size: Total dataset size for relative stats
+            domain: Identified domain
             
         Returns:
             List of insight strings
         """
         insights = []
         
-        # Insight 1: Cluster size - deterministic: always use first template
+        # Insight 1: Cluster size and significance
         count = len(sentences)
-        size_template = self.insight_templates['size'][0]
-        insights.append(size_template.format(count=count))
+        if total_dataset_size and total_dataset_size > 0:
+            percent = count / total_dataset_size
+            if percent > 0.2: # Major cluster (>20%)
+                size_template = self.insight_templates['size_large'][0]
+                insights.append(size_template.format(count=count, percent=percent))
+            elif percent < 0.05 and count < 5: # Niche cluster
+                size_template = self.insight_templates['size_small'][0]
+                insights.append(size_template.format(count=count))
+            else:
+                size_template = self.insight_templates['size'][0]
+                insights.append(size_template.format(count=count))
+        else:
+            size_template = self.insight_templates['size'][0]
+            insights.append(size_template.format(count=count))
         
-        # Insight 2: Sentiment - deterministic: always use first template
+        # Insight 2: Nuanced Sentiment
         sentiment = sentiment_info.get('sentiment', 'neutral')
         confidence = sentiment_info.get('confidence', 0.5)
+        proportions = sentiment_info.get('proportions', {})
+        avg_compound = sentiment_info.get('avg_compound', 0.0)
         
-        if sentiment == 'positive':
-            sentiment_template = self.insight_templates['sentiment_positive'][0]
-        elif sentiment == 'negative':
-            sentiment_template = self.insight_templates['sentiment_negative'][0]
+        # Check for mixed sentiment (nuanced)
+        pos_prop = proportions.get('positive', 0.0)
+        neg_prop = proportions.get('negative', 0.0)
+        
+        if pos_prop > 0.25 and neg_prop > 0.25:
+             # It's mixed/polarized
+             sentiment_template = self.insight_templates['sentiment_mixed'][0]
+             insights.append(sentiment_template.format(score=avg_compound))
         else:
-            sentiment_template = self.insight_templates['sentiment_neutral'][0]
+             # Standard sentiment
+            if sentiment == 'positive':
+                sentiment_template = self.insight_templates['sentiment_positive'][0]
+            elif sentiment == 'negative':
+                sentiment_template = self.insight_templates['sentiment_negative'][0]
+            else:
+                sentiment_template = self.insight_templates['sentiment_neutral'][0]
+            
+            insights.append(sentiment_template.format(confidence=confidence))
         
-        insights.append(sentiment_template.format(confidence=confidence))
-        
-        # Insight 3: Key terms or diversity - deterministic
-        if key_terms and len(key_terms) >= 2:
+        # Insight 3: Domain, Key terms, or Diversity
+        if domain:
+             domain_template = self.insight_templates['domain'][0]
+             insights.append(domain_template.format(domain=domain))
+        elif key_terms and len(key_terms) >= 2:
             key_terms_str = ", ".join(key_terms[:3])
             insights.append(f"Key topics: {key_terms_str}")
         else:

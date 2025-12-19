@@ -10,6 +10,7 @@ Coordinates the full workflow:
 
 from typing import List, Dict, Any, Optional, Tuple
 import numpy as np
+import concurrent.futures
 
 from .preprocessing import TextPreprocessor
 from .embedding import EmbeddingModel
@@ -82,20 +83,32 @@ class PipelineOrchestrator:
             logger.debug(f"Preprocessing {len(sentence_texts)} sentences")
             preprocessed_sentences = self.preprocessor.preprocess_batch(sentence_texts)
             
-            # Step 2: Generate embeddings
-            logger.debug("Generating sentence embeddings")
-            embeddings = self.embedding_model.embed(preprocessed_sentences)
+            # Step 2 & 3: Run Sentiment Analysis in parallel with (Embedding + Clustering)
+            logger.debug("Starting parallel execution of sentiment analysis and (embedding + clustering)")
             
-            # Step 3: Cluster sentences
-            logger.debug("Clustering sentences")
-            labels = self.cluster_analyzer.cluster(embeddings)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+                # Start sentiment analysis in background
+                future_sentiment = executor.submit(self.sentiment_analyzer.analyze_batch, preprocessed_sentences)
+                
+                # Run embedding and clustering in main thread (or could be another future)
+                logger.debug("Generating sentence embeddings")
+                embeddings = self.embedding_model.embed(preprocessed_sentences)
+                
+                logger.debug("Clustering sentences")
+                labels = self.cluster_analyzer.cluster(embeddings)
+                
+                # Get sentiment results
+                sentiment_results = future_sentiment.result()
+                
+            logger.debug("Parallel execution completed")
             
-            # Step 4: Analyze sentiment
-            logger.debug("Analyzing sentiment")
+            # Step 5: Aggregate sentiment by cluster
+            logger.debug("Aggregating sentiment by cluster")
             cluster_sentiments = self.sentiment_analyzer.get_cluster_sentiment(
                 sentences=preprocessed_sentences,
                 embeddings=embeddings,
-                labels=labels
+                labels=labels,
+                precomputed_sentiments=sentiment_results
             )
             
             # Step 5: Generate insights for each cluster and map to required format
@@ -128,7 +141,8 @@ class PipelineOrchestrator:
                     sentences=cluster_sentences,
                     embeddings=cluster_embeddings,
                     sentiment_info=sentiment_info,
-                    preprocessor=self.preprocessor
+                    preprocessor=self.preprocessor,
+                    total_dataset_size=len(sentences)
                 )
                 
                 if insight:
@@ -170,8 +184,19 @@ class PipelineOrchestrator:
             job_id: Unique job identifier for logging
             
         Returns:
-            Dictionary with comparative analysis results matching required format
-            (to be defined, but for now we'll adapt existing format)
+            Dictionary with comparative analysis results matching required format:
+            {
+                "clusters": [
+                    {
+                        "title": str,
+                        "sentiment": str,
+                        "baselineSentences": List[str],
+                        "comparisonSentences": List[str],
+                        "keySimilarities": List[str],
+                        "keyDifferences": List[str]
+                    }
+                ]
+            }
         """
         timer = Timer()
         logger.info(f"Starting comparative analysis for job {job_id}")
@@ -192,26 +217,75 @@ class PipelineOrchestrator:
                 comparison_clusters=comparison_result['clusters']
             )
             
-            # Format results
+            # Transform results to match schema
+            comparison_clusters = []
+            
+            # 1. Add matched clusters (similar pairs)
+            for sim in comparison_analysis.get('similarities', []):
+                b_cluster = sim['baseline_cluster']
+                c_cluster = sim['comparison_cluster']
+                
+                # Determine unified title and sentiment
+                # Prefer title from larger cluster or baseline if similar size
+                if b_cluster['size'] >= c_cluster['size']:
+                    title = b_cluster['title']
+                    sentiment = b_cluster['sentiment']
+                else:
+                    title = c_cluster['title']
+                    sentiment = c_cluster['sentiment']
+                    
+                # Create ComparisonCluster object
+                comparison_clusters.append({
+                    'title': title,
+                    'sentiment': sentiment,
+                    'baselineSentences': b_cluster.get('sentence_ids', []),
+                    'comparisonSentences': c_cluster.get('sentence_ids', []),
+                    'keySimilarities': sim.get('key_similarities', []),
+                    'keyDifferences': sim.get('key_differences', [])
+                })
+            
+            # 2. Add unique baseline clusters
+            differences = comparison_analysis.get('differences', {})
+            for b_unique in differences.get('baseline_unique', []):
+                comparison_clusters.append({
+                    'title': b_unique.get('title', 'Unknown'),
+                    'sentiment': b_unique.get('sentiment', 'neutral'),
+                    'baselineSentences': b_unique.get('sentence_ids', []),
+                    'comparisonSentences': [],
+                    'keySimilarities': [],
+                    'keyDifferences': [
+                        "This topic appears uniquely in the baseline dataset.",
+                        f"Key insights: {', '.join(b_unique.get('insights', [])[:1])}"
+                    ]
+                })
+                
+            # 3. Add unique comparison clusters
+            for c_unique in differences.get('comparison_unique', []):
+                comparison_clusters.append({
+                    'title': c_unique.get('title', 'Unknown'),
+                    'sentiment': c_unique.get('sentiment', 'neutral'),
+                    'baselineSentences': [],
+                    'comparisonSentences': c_unique.get('sentence_ids', []),
+                    'keySimilarities': [],
+                    'keyDifferences': [
+                        "This topic appears uniquely in the comparison dataset.",
+                        f"Key insights: {', '.join(c_unique.get('insights', [])[:1])}"
+                    ]
+                })
+            
+            processing_time_ms = timer.elapsed_ms()
+            
             result = {
-                'baseline': {
-                    'clusters': baseline_result['clusters'],
-                    'summary': baseline_result['summary']
-                },
-                'comparison': {
-                    'clusters': comparison_result['clusters'],
-                    'summary': comparison_result['summary']
-                },
-                'comparison_analysis': comparison_analysis,
-                'processing_metadata': {
-                    'baseline_sentence_count': len(baseline),
-                    'comparison_sentence_count': len(comparison),
-                    'baseline_cluster_count': len(baseline_result['clusters']),
-                    'comparison_cluster_count': len(comparison_result['clusters'])
+                'clusters': comparison_clusters,
+                'metadata': {
+                    'processingTimeMs': processing_time_ms,
+                    'similarityScore': comparison_analysis.get('similarity_score', 0.0),
+                    'totalBaselineSentences': len(baseline),
+                    'totalComparisonSentences': len(comparison),
+                    'summary': comparison_analysis.get('summary', '')
                 }
             }
             
-            processing_time_ms = timer.elapsed_ms()
             logger.info(f"Completed comparative analysis in {processing_time_ms}ms")
             
             return result
@@ -244,17 +318,26 @@ class PipelineOrchestrator:
         # Preprocess
         preprocessed_sentences = self.preprocessor.preprocess_batch(sentence_texts)
         
-        # Embed
-        embeddings = self.embedding_model.embed(preprocessed_sentences)
+        # Embed and Sentiment Analysis in parallel
+        # We run sentiment in background while doing embedding + clustering
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            future_sentiment = executor.submit(self.sentiment_analyzer.analyze_batch, preprocessed_sentences)
+            
+            # Embed
+            embeddings = self.embedding_model.embed(preprocessed_sentences)
+            
+            # Cluster
+            labels = self.cluster_analyzer.cluster(embeddings)
+            
+            # Wait for sentiment
+            sentiment_results = future_sentiment.result()
         
-        # Cluster
-        labels = self.cluster_analyzer.cluster(embeddings)
-        
-        # Analyze sentiment
+        # Aggregate sentiment
         cluster_sentiments = self.sentiment_analyzer.get_cluster_sentiment(
             sentences=preprocessed_sentences,
             embeddings=embeddings,
-            labels=labels
+            labels=labels,
+            precomputed_sentiments=sentiment_results
         )
         
         # Generate insights
@@ -275,17 +358,25 @@ class PipelineOrchestrator:
                 'confidence': 0.0
             })
             
+            # Ensure sentiment is valid
+            sentiment = sentiment_info.get('sentiment', 'neutral')
+            if sentiment not in ['positive', 'negative', 'neutral']:
+                sentiment = 'neutral'
+            sentiment_info['sentiment'] = sentiment
+            
             insight = self.insight_generator.generate_cluster_insights(
                 cluster_id=int(label),
                 sentences=cluster_sentences,
                 embeddings=cluster_embeddings,
                 sentiment_info=sentiment_info,
-                preprocessor=self.preprocessor
+                preprocessor=self.preprocessor,
+                total_dataset_size=len(sentences)
             )
             
             if insight:
-                # Add sentence IDs to insight for downstream use
+                # Add sentence IDs and standardized sentiment to insight for downstream use
                 insight['sentence_ids'] = cluster_sentence_ids
+                insight['sentiment'] = sentiment
                 clusters.append(insight)
         
         # Generate overall summary
