@@ -18,43 +18,24 @@ from typing import Dict, List, Any
 def pytest_configure(config):
     """Configure pytest environment before test collection."""
     # Set fake AWS credentials to prevent accidental access to real AWS accounts
-    os.environ['AWS_ACCESS_KEY_ID'] = 'testing'
-    os.environ['AWS_SECRET_ACCESS_KEY'] = 'testing'
-    os.environ['AWS_SECURITY_TOKEN'] = 'testing'
-    os.environ['AWS_SESSION_TOKEN'] = 'testing'
-    os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
-    os.environ['AWS_REGION'] = 'us-east-1'
+    os.environ["POWERTOOLS_TRACE_DISABLED"] = "true"
+    os.environ["POWERTOOLS_SERVICE_NAME"] = "text-analysis-service"
+    
+    # Provide dummy credentials so botocore doesn't look for a profile
+    os.environ["AWS_ACCESS_KEY_ID"] = "testing"
+    os.environ["AWS_SECRET_ACCESS_KEY"] = "testing"
+    os.environ["AWS_SECURITY_TOKEN"] = "testing"
+    os.environ["AWS_SESSION_TOKEN"] = "testing"
+    os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
+    os.environ["AWS_REGION"] = "us-east-1"
     
     # Disable AWS CLI profile to avoid using real credentials
-    os.environ['AWS_PROFILE'] = ''
+    # Delete AWS_PROFILE to prevent boto3 from trying to load a profile
+    os.environ.pop("AWS_PROFILE", None)
     
     # Set test-specific environment variables
-    os.environ['ENVIRONMENT'] = 'test'
-    os.environ['LOG_LEVEL'] = 'DEBUG'
-
-
-@pytest.fixture(scope='session')
-def aws_credentials():
-    """
-    Fixture that sets up fake AWS credentials for testing.
-    
-    This ensures tests never accidentally use real AWS credentials.
-    Returns a dictionary with the configured credentials.
-    """
-    credentials = {
-        'aws_access_key_id': 'testing',
-        'aws_secret_access_key': 'testing',
-        'aws_session_token': 'testing',
-        'region_name': 'us-east-1'
-    }
-    
-    # Apply the credentials to environment
-    os.environ['AWS_ACCESS_KEY_ID'] = credentials['aws_access_key_id']
-    os.environ['AWS_SECRET_ACCESS_KEY'] = credentials['aws_secret_access_key']
-    os.environ['AWS_SESSION_TOKEN'] = credentials['aws_session_token']
-    os.environ['AWS_DEFAULT_REGION'] = credentials['region_name']
-    
-    return credentials
+    os.environ["ENVIRONMENT"] = "test"
+    os.environ["LOG_LEVEL"] = "DEBUG"
 
 
 @pytest.fixture(scope='session')

@@ -10,3 +10,7 @@ sentence-transformers>=2.2.2
 opentelemetry-api
 opentelemetry-sdk
 opentelemetry-exporter-otlp-proto-http
+
+# AWS Lambda Powertools
+aws-lambda-powertools[parser]
+aws-xray-sdk

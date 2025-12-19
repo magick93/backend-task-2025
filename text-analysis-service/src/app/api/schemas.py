@@ -130,6 +130,7 @@ class StandaloneInput(BaseModel):
         return v
     
     model_config = ConfigDict(
+        extra='forbid',
         json_schema_extra={
             "example": {
                 "surveyTitle": "Robinhood App Store Reviews",
@@ -211,6 +212,7 @@ class ComparisonInput(BaseModel):
         return v
     
     model_config = ConfigDict(
+        extra='forbid',
         json_schema_extra={
             "example": {
                 "surveyTitle": "Airline Food Service Reviews",

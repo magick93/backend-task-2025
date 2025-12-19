@@ -44,6 +44,16 @@ Resources:
           Properties:
             Path: /analyze
             Method: POST
+        HealthEvent:
+          Type: Api
+          Properties:
+            Path: /health
+            Method: GET
+        OpenApiEvent:
+          Type: Api
+          Properties:
+            Path: /openapi.json
+            Method: GET
       Environment:
         Variables:
           LOG_LEVEL: INFO
