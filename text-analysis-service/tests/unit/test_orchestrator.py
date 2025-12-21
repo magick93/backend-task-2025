@@ -1,31 +1,32 @@
 import unittest
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, patch, Mock
 import numpy as np
 from src.app.pipeline.orchestrator import PipelineOrchestrator
 
 class TestPipelineOrchestrator(unittest.TestCase):
     def setUp(self):
-        # Patch dependencies to avoid loading actual models
-        self.patcher_embed = patch('src.app.pipeline.orchestrator.EmbeddingModel')
-        self.patcher_sentiment = patch('src.app.pipeline.orchestrator.SentimentAnalyzer')
-        self.patcher_cluster = patch('src.app.pipeline.orchestrator.ClusterAnalyzer')
+        # Create mock services for dependency injection
+        self.mock_embedding_service = Mock()
+        self.mock_clustering_service = Mock()
+        self.mock_sentiment_service = Mock()
+        
+        # Patch other dependencies that are still instantiated directly
         self.patcher_preproc = patch('src.app.pipeline.orchestrator.TextPreprocessor')
         self.patcher_insights = patch('src.app.pipeline.orchestrator.InsightGenerator')
         self.patcher_compare = patch('src.app.pipeline.orchestrator.ComparisonAnalyzer')
         
-        self.MockEmbeddingModel = self.patcher_embed.start()
-        self.MockSentimentAnalyzer = self.patcher_sentiment.start()
-        self.MockClusterAnalyzer = self.patcher_cluster.start()
         self.MockTextPreprocessor = self.patcher_preproc.start()
         self.MockInsightGenerator = self.patcher_insights.start()
         self.MockComparisonAnalyzer = self.patcher_compare.start()
         
-        self.orchestrator = PipelineOrchestrator()
+        # Create orchestrator with mocked services
+        self.orchestrator = PipelineOrchestrator(
+            embedding_service=self.mock_embedding_service,
+            clustering_service=self.mock_clustering_service,
+            sentiment_service=self.mock_sentiment_service
+        )
         
     def tearDown(self):
-        self.patcher_embed.stop()
-        self.patcher_sentiment.stop()
-        self.patcher_cluster.stop()
         self.patcher_preproc.stop()
         self.patcher_insights.stop()
         self.patcher_compare.stop()
@@ -42,10 +43,10 @@ class TestPipelineOrchestrator(unittest.TestCase):
         }
         
         self.orchestrator.preprocessor.preprocess_batch.return_value = preprocessed
-        self.orchestrator.embedding_model.embed.return_value = embeddings
-        self.orchestrator.sentiment_analyzer.analyze_batch.return_value = sentiment_results
-        self.orchestrator.cluster_analyzer.cluster.return_value = labels
-        self.orchestrator.sentiment_analyzer.get_cluster_sentiment.return_value = cluster_sentiments
+        self.mock_embedding_service.embed.return_value = embeddings
+        self.mock_sentiment_service.analyze_batch.return_value = sentiment_results
+        self.mock_clustering_service.cluster.return_value = labels
+        self.mock_sentiment_service.get_cluster_sentiment.return_value = cluster_sentiments
         self.orchestrator.insight_generator.generate_cluster_insights.return_value = {'title': 'Test', 'insights': ['Insight']}
 
         # Call the method
@@ -62,11 +63,11 @@ class TestPipelineOrchestrator(unittest.TestCase):
             
             # Verify ThreadPoolExecutor was used for sentiment
             MockExecutor.assert_called()
-            mock_executor_instance.submit.assert_called_with(self.orchestrator.sentiment_analyzer.analyze_batch, preprocessed)
+            mock_executor_instance.submit.assert_called_with(self.mock_sentiment_service.analyze_batch, preprocessed)
             
             # Verify direct calls for others
-            self.orchestrator.embedding_model.embed.assert_called_with(preprocessed)
-            self.orchestrator.cluster_analyzer.cluster.assert_called_with(embeddings)
+            self.mock_embedding_service.embed.assert_called_with(preprocessed)
+            self.mock_clustering_service.cluster.assert_called_with(embeddings)
             
             # Verify results
             self.assertEqual(len(result['clusters']), 1)
