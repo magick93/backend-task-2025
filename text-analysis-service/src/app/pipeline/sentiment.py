@@ -11,13 +11,14 @@ import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as VaderAnalyzer
 
 from ..utils.logging import setup_logger
+from .interfaces import SentimentService
 
 logger = setup_logger(__name__)
 
 
-class SentimentAnalyzer:
+class VaderSentimentService(SentimentService):
     """
-    Sentiment analyzer using VADER.
+    VADER-based sentiment analysis service.
     """
     
     def __init__(
@@ -46,7 +47,7 @@ class SentimentAnalyzer:
         if positive_keywords or negative_keywords:
             self.add_custom_keywords(positive_keywords or [], negative_keywords or [])
             
-        logger.debug("SentimentAnalyzer initialized with VADER")
+        logger.debug("VaderSentimentService initialized with VADER")
     
     def analyze_sentence(self, sentence: str) -> Dict[str, Any]:
         """
@@ -231,8 +232,8 @@ class SentimentAnalyzer:
         return cluster_sentiments
     
     def add_custom_keywords(
-        self, 
-        positive_keywords: List[str], 
+        self,
+        positive_keywords: List[str],
         negative_keywords: List[str]
     ) -> None:
         """
@@ -260,20 +261,24 @@ class SentimentAnalyzer:
         )
 
 
+# Backward compatibility alias
+SentimentAnalyzer = VaderSentimentService
+
+
 # Singleton instance for easy import
-_default_sentiment_analyzer: Optional[SentimentAnalyzer] = None
+_default_sentiment_analyzer: Optional[VaderSentimentService] = None
 
 
-def get_sentiment_analyzer() -> SentimentAnalyzer:
+def get_sentiment_analyzer() -> VaderSentimentService:
     """
     Get or create the default sentiment analyzer instance.
     
     Returns:
-        Shared SentimentAnalyzer instance
+        Shared VaderSentimentService instance
     """
     global _default_sentiment_analyzer
     if _default_sentiment_analyzer is None:
-        _default_sentiment_analyzer = SentimentAnalyzer()
+        _default_sentiment_analyzer = VaderSentimentService()
         logger.info("Created default sentiment analyzer instance")
     
     return _default_sentiment_analyzer

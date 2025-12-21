@@ -13,9 +13,8 @@ import numpy as np
 import concurrent.futures
 
 from .preprocessing import TextPreprocessor
-from .embedding import EmbeddingModel
-from .clustering import ClusterAnalyzer
-from .sentiment import SentimentAnalyzer
+from .interfaces import EmbeddingService, ClusteringService, SentimentService
+from .factory import ServiceFactory
 from .insights import InsightGenerator
 from .comparison import ComparisonAnalyzer
 from ..utils.logging import setup_logger
@@ -35,16 +34,31 @@ class PipelineOrchestrator:
     4. Format appropriate output for each input type
     """
     
-    def __init__(self):
-        """Initialize pipeline components with default configurations."""
+    def __init__(
+        self,
+        embedding_service: Optional[EmbeddingService] = None,
+        clustering_service: Optional[ClusteringService] = None,
+        sentiment_service: Optional[SentimentService] = None
+    ):
+        """
+        Initialize pipeline components with dependency injection.
+        
+        Args:
+            embedding_service: Optional embedding service instance.
+                               If None, uses ServiceFactory.get_embedding_service()
+            clustering_service: Optional clustering service instance.
+                               If None, uses ServiceFactory.get_clustering_service()
+            sentiment_service: Optional sentiment service instance.
+                               If None, uses ServiceFactory.get_sentiment_service()
+        """
         self.preprocessor = TextPreprocessor()
-        self.embedding_model = EmbeddingModel()
-        self.cluster_analyzer = ClusterAnalyzer()
-        self.sentiment_analyzer = SentimentAnalyzer()
+        self.embedding_service = embedding_service or ServiceFactory.get_embedding_service()
+        self.clustering_service = clustering_service or ServiceFactory.get_clustering_service()
+        self.sentiment_service = sentiment_service or ServiceFactory.get_sentiment_service()
         self.insight_generator = InsightGenerator()
         self.comparison_analyzer = ComparisonAnalyzer()
         
-        logger.debug("PipelineOrchestrator initialized with all components")
+        logger.debug("PipelineOrchestrator initialized with dependency injection")
     
     def process_standalone(
         self,
@@ -88,14 +102,14 @@ class PipelineOrchestrator:
             
             with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
                 # Start sentiment analysis in background
-                future_sentiment = executor.submit(self.sentiment_analyzer.analyze_batch, preprocessed_sentences)
+                future_sentiment = executor.submit(self.sentiment_service.analyze_batch, preprocessed_sentences)
                 
                 # Run embedding and clustering in main thread (or could be another future)
                 logger.debug("Generating sentence embeddings")
-                embeddings = self.embedding_model.embed(preprocessed_sentences)
+                embeddings = self.embedding_service.embed(preprocessed_sentences)
                 
                 logger.debug("Clustering sentences")
-                labels = self.cluster_analyzer.cluster(embeddings)
+                labels = self.clustering_service.cluster(embeddings)
                 
                 # Get sentiment results
                 sentiment_results = future_sentiment.result()
@@ -104,7 +118,7 @@ class PipelineOrchestrator:
             
             # Step 5: Aggregate sentiment by cluster
             logger.debug("Aggregating sentiment by cluster")
-            cluster_sentiments = self.sentiment_analyzer.get_cluster_sentiment(
+            cluster_sentiments = self.sentiment_service.get_cluster_sentiment(
                 sentences=preprocessed_sentences,
                 embeddings=embeddings,
                 labels=labels,
@@ -321,19 +335,19 @@ class PipelineOrchestrator:
         # Embed and Sentiment Analysis in parallel
         # We run sentiment in background while doing embedding + clustering
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-            future_sentiment = executor.submit(self.sentiment_analyzer.analyze_batch, preprocessed_sentences)
+            future_sentiment = executor.submit(self.sentiment_service.analyze_batch, preprocessed_sentences)
             
             # Embed
-            embeddings = self.embedding_model.embed(preprocessed_sentences)
+            embeddings = self.embedding_service.embed(preprocessed_sentences)
             
             # Cluster
-            labels = self.cluster_analyzer.cluster(embeddings)
+            labels = self.clustering_service.cluster(embeddings)
             
             # Wait for sentiment
             sentiment_results = future_sentiment.result()
         
         # Aggregate sentiment
-        cluster_sentiments = self.sentiment_analyzer.get_cluster_sentiment(
+        cluster_sentiments = self.sentiment_service.get_cluster_sentiment(
             sentences=preprocessed_sentences,
             embeddings=embeddings,
             labels=labels,

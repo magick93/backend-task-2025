@@ -25,13 +25,14 @@ except ImportError:
     SentenceTransformer = None
 
 from ..utils.logging import setup_logger
+from .interfaces import EmbeddingService
 
 logger = setup_logger(__name__)
 
 
-class EmbeddingModel:
+class HuggingFaceEmbeddingService(EmbeddingService):
     """
-    Sentence embedding model wrapper with caching.
+    HuggingFace-based sentence embedding service with caching.
     
     Uses HuggingFace's all-MiniLM-L6-v2 model for sentence embeddings.
     Implements simple in-memory caching suitable for Lambda environments.
@@ -61,7 +62,7 @@ class EmbeddingModel:
         # Initialize cache
         self._embedding_cache: Dict[str, np.ndarray] = {}
         
-        logger.debug(f"EmbeddingModel initialized with model: {model_name}, device: {device}")
+        logger.debug(f"HuggingFaceEmbeddingService initialized with model: {model_name}, device: {device}")
     
     @property
     def model(self):
@@ -223,20 +224,24 @@ class EmbeddingModel:
         return 0.0
 
 
+# Backward compatibility alias
+EmbeddingModel = HuggingFaceEmbeddingService
+
+
 # Singleton instance for easy import
-_default_embedding_model: Optional[EmbeddingModel] = None
+_default_embedding_model: Optional[HuggingFaceEmbeddingService] = None
 
 
-def get_embedding_model() -> EmbeddingModel:
+def get_embedding_model() -> HuggingFaceEmbeddingService:
     """
     Get or create the default embedding model instance.
     
     Returns:
-        Shared EmbeddingModel instance
+        Shared HuggingFaceEmbeddingService instance
     """
     global _default_embedding_model
     if _default_embedding_model is None:
-        _default_embedding_model = EmbeddingModel()
+        _default_embedding_model = HuggingFaceEmbeddingService()
         logger.info("Created default embedding model instance")
     
     return _default_embedding_model

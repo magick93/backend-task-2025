@@ -9,13 +9,14 @@ import numpy as np
 from sklearn.cluster import DBSCAN
 
 from ..utils.logging import setup_logger
+from .interfaces import ClusteringService
 
 logger = setup_logger(__name__)
 
 
-class ClusterAnalyzer:
+class SklearnClusteringService(ClusteringService):
     """
-    Clustering analyzer for sentence embeddings using DBSCAN.
+    Scikit-learn based clustering service using DBSCAN.
     """
     
     def __init__(
@@ -37,7 +38,7 @@ class ClusterAnalyzer:
         self.metric = metric
         
         logger.debug(
-            f"ClusterAnalyzer initialized: eps={eps}, "
+            f"SklearnClusteringService initialized: eps={eps}, "
             f"min_samples={min_samples}, metric={metric}"
         )
     
@@ -164,20 +165,24 @@ class ClusterAnalyzer:
         return True
 
 
+# Backward compatibility alias
+ClusterAnalyzer = SklearnClusteringService
+
+
 # Singleton instance for easy import
-_default_cluster_analyzer: Optional[ClusterAnalyzer] = None
+_default_cluster_analyzer: Optional[SklearnClusteringService] = None
 
 
-def get_cluster_analyzer() -> ClusterAnalyzer:
+def get_cluster_analyzer() -> SklearnClusteringService:
     """
     Get or create the default cluster analyzer instance.
     
     Returns:
-        Shared ClusterAnalyzer instance
+        Shared SklearnClusteringService instance
     """
     global _default_cluster_analyzer
     if _default_cluster_analyzer is None:
-        _default_cluster_analyzer = ClusterAnalyzer()
+        _default_cluster_analyzer = SklearnClusteringService()
         logger.info("Created default cluster analyzer instance")
     
     return _default_cluster_analyzer
