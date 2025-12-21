@@ -1,2 +1,3 @@
 text-analysis-service/.aws-sam/
-text-analysis-service/scripts/__pycache__/
+text-analysis-service/scripts/__pycache__/**
+**/__pycache__/
