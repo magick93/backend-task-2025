@@ -11,3 +11,5 @@ text-analysis-service/src/app/pipeline/__pycache__/
 text-analysis-service/src/app/utils/__pycache__/
 text-analysis-service/tests/__pycache__/
 text-analysis-service/tests/integration/__pycache__/
+text-analysis-service/__pycache__/
+text-analysis-service/scripts/__pycache__/
