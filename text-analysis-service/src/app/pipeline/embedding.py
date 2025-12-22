@@ -40,7 +40,7 @@ class HuggingFaceEmbeddingService(EmbeddingService):
     
     def __init__(
         self,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model_name: Optional[str] = None,
         cache_size: int = 1000,
         device: Optional[str] = None
     ):
@@ -48,10 +48,16 @@ class HuggingFaceEmbeddingService(EmbeddingService):
         Initialize the embedding model.
         
         Args:
-            model_name: HuggingFace model name
+            model_name: HuggingFace model name. If None, uses EMBEDDING_MODEL_NAME env var
+                       or defaults to "sentence-transformers/all-MiniLM-L6-v2"
             cache_size: Maximum number of sentences to cache
             device: Device to run model on ('cpu', 'cuda', etc.). If None, auto-detects.
         """
+        if model_name is None:
+            model_name = os.environ.get(
+                "EMBEDDING_MODEL_NAME",
+                "sentence-transformers/all-MiniLM-L6-v2"
+            )
         self.model_name = model_name
         self.cache_size = cache_size
         self.device = device

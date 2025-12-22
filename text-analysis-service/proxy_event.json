@@ -1,0 +1,24 @@
+{
+  "httpMethod": "POST",
+  "path": "/analyze",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer test-token"
+  },
+  "queryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "accountId": "123456789012",
+    "apiId": "test-api-id",
+    "protocol": "HTTP/1.1",
+    "httpMethod": "POST",
+    "path": "/analyze",
+    "stage": "test",
+    "requestId": "test-request-id",
+    "requestTime": "21/Dec/2025:20:56:00 +0000",
+    "requestTimeEpoch": 1734810960
+  },
+  "body": "{\n  \"surveyTitle\": \"Robinhood App Store\",\n  \"theme\": \"account\",\n  \"baseline\": [\n    {\n      \"sentence\": \"The app is easy to use and intuitive.\",\n      \"id\": \"s1\"\n    },\n    {\n      \"sentence\": \"I had trouble withdrawing my funds.\",\n      \"id\": \"s2\"\n    },\n    {\n      \"sentence\": \"Customer support was very helpful.\",\n      \"id\": \"s3\"\n    }\n  ]\n}",
+  "isBase64Encoded": false
+}

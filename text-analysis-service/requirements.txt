@@ -22,3 +22,4 @@ opentelemetry-exporter-otlp-proto-http
 
 # AWS Lambda Powertools
 aws-lambda-powertools[parser]
+aws-xray-sdk

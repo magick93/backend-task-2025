@@ -17,19 +17,22 @@ from aws_lambda_powertools import Logger, Tracer, Metrics
 from aws_lambda_powertools.event_handler import APIGatewayRestResolver
 from aws_lambda_powertools.event_handler.openapi.config import OpenAPIConfig
 from aws_lambda_powertools.event_handler.openapi.params import Body
+from aws_lambda_powertools.event_handler.exceptions import BadRequestError, ServiceError
 from aws_lambda_powertools.utilities.typing import LambdaContext
 from aws_lambda_powertools.logging import correlation_paths
+from pydantic import ValidationError
 
 from .pipeline.orchestrator import PipelineOrchestrator
 from .utils.logging import setup_logger
 from .utils.timing import Timer
 from .api.schemas import (
-    StandaloneInput, 
-    ComparisonInput, 
-    ErrorResponse, 
-    StandaloneOutput, 
+    StandaloneInput,
+    ComparisonInput,
+    ErrorResponse,
+    StandaloneOutput,
     ComparisonOutput
 )
+from .api.errors import TextAnalysisError
 
 # Initialize Powertools
 logger = Logger(service="text-analysis-service")
@@ -129,10 +132,34 @@ def analyze(payload: Union[ComparisonInput, StandaloneInput] = Body(...)) -> Dic
 
         return result
 
+    except ValidationError as e:
+        # Log validation errors with details
+        logger.error(f"Job {job_id} failed: Validation error", extra={
+            "job_id": job_id,
+            "error_type": "ValidationError",
+            "error_details": str(e),
+            "validation_errors": e.errors() if hasattr(e, 'errors') else []
+        })
+        # Re-raise as BadRequestError for proper 400 response
+        raise BadRequestError(f"Invalid request data: {str(e)}")
+    except TextAnalysisError as e:
+        # Log custom text analysis errors
+        logger.error(f"Job {job_id} failed: {e.error_code}", extra={
+            "job_id": job_id,
+            "error_code": e.error_code,
+            "error_message": e.message,
+            "status_code": e.status_code
+        })
+        # Re-raise for proper error response
+        if e.status_code >= 400 and e.status_code < 500:
+            raise BadRequestError(e.message)
+        else:
+            raise ServiceError(e.message)
     except Exception as e:
-        logger.exception(f"Job {job_id} failed")
-        # In a real app we might want to map specific exceptions to 400
-        raise
+        # Log unexpected errors with full traceback
+        logger.exception(f"Job {job_id} failed: Unexpected error")
+        # Re-raise as ServiceError for proper 500 response
+        raise ServiceError(f"Internal server error: {str(e)}")
 
 @app.get("/health", tags=["Admin Operations"], summary="Health check")
 def health():

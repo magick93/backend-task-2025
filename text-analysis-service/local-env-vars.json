@@ -1,5 +1,6 @@
 {
   "TextAnalysisFunction": {
-    "LOG_LEVEL": "DEBUG"
+    "LOG_LEVEL": "DEBUG",
+    "EMBEDDING_MODEL_NAME": "sentence-transformers/paraphrase-MiniLM-L3-v2"
   }
 }
